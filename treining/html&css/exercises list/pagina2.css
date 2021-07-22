@@ -1,0 +1,36 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+h1, h2, td, a {
+    font-family: arial;
+}
+
+h1, h2 {
+    margin: 15px;
+    margin-left: 25px;
+}
+
+.header {
+    width: 100%;
+    height: 20%;
+}
+
+.tabela {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 110px;
+}
+
+
+a {
+    margin-left: 90%;
+}
+
+td {
+    padding: 20px;
+}

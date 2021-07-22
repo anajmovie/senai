@@ -1,0 +1,49 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+h1, h2, li, d {
+    font-family: arial;
+}
+
+h1, h2 {
+    margin: 15px;
+    margin-left: 25px;
+}
+
+a {
+    margin-left: 90%;
+}
+
+.header {
+    width: 100%;
+    height: 20%;
+}
+
+.list1 {
+    margin-top: 100px;
+    margin-left: 20px;
+}
+
+.list2 {
+    margin-top: 100px;
+    display: flex;  
+}
+
+.list3 {
+    margin-top: 100px;
+    display: flex;
+    margin-left: 20px;
+}
+
+#item {
+    margin: 18px;
+}
+
+#d {
+    margin: 10px;
+}
