@@ -18,10 +18,9 @@ function calcularDiv() {
 }
 
 function calcularMod() {
-    let calc = (Number(num2.value) - Number(num1.value)) / (Number(num1.value) * 100);
-    let calc2 = calc / (Number(num1.value) * 100);
-    let calc3 = calc2 * 100;
-    resultado.innerHTML = "Resultado: " + calc3;
+    let calc = Number(num1.value) * Number(num2.value);
+    let calc2 = calc / 100;
+    resultado.innerHTML = "Resultado: " + calc2;
 }
 
 function calcularMult() {
