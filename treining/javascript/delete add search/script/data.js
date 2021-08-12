@@ -14,6 +14,26 @@ function cadastrar() {
         row.appendChild(col);
     }
     tablebody.appendChild(row);
+    this.cancelar();
+
+    let msg = "";
+    if(data[0] == "") {
+        msg += "- Informe o nome do aluno \n";
+    }
+
+    if(data[1] == "") {
+        msg += "- Informe o documento do aluno \n";
+    }
+
+    if(data[2] == "") {
+        msg += "- Informe a turma do aluno \n";
+    }
+
+    if(msg != "") {
+        alert(msg);
+        return false;
+    }
+    return true;
 }
 
 function apagar() {
@@ -42,4 +62,10 @@ function buscar() {
             rows[i].style.display = "none";
         }
     }
+}
+
+function cancelar() {
+    document.getElementById("nome").value = "";
+    document.getElementById("identidade").value = "";
+    document.getElementById("turma").value = "";
 }

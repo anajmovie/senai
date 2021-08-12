@@ -44,6 +44,14 @@ button {
     height: 25px;
     background: #b07d62;
     color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    color: #000;
+    background: #fff;
+    animation: 1s;
+    transition: 0.3s;
 }
 
 
