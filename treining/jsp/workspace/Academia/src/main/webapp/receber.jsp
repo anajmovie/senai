@@ -10,6 +10,7 @@
 <title>Lista de Clientes (READ)</title>
 </head>
 <body>
+	<h1>Lista de clientes cadastrados:</h1>
 	<div class="btns">
 		<a href="cadastro.jsp">
 			<button id="botao">Cadastrar Novo</button>
