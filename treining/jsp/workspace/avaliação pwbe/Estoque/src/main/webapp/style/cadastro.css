@@ -1,0 +1,63 @@
+html,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background: #f8efe3;
+}
+
+h1 {
+	text-align: center;
+	font-family: arial;
+}
+
+form {
+	border: 1px solid #000;
+	width: 20%;
+	font-family: arial;
+	padding: 20px 20px;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	border-radius: 20px 20px 20px 20px;
+	margin: 30px auto;
+	box-shadow: 0.1em 0.1em 0.2em black;
+	background: #f8efe9;
+}
+
+input {
+	width: 70%;
+	padding: 3px;
+	box-shadow: 0.1em 0.1em 0.2em black;
+}
+
+input[type=submit]{
+	width: 20%;
+	height: 30px;
+	cursor: pointer;
+	background: #f4b792;
+	font-style: bold;
+}
+
+input[type=submit]:hover{
+	background: #f8efe9;
+	animation: 0.2s;
+	transition: 0.4s;
+}
+
+a>button {
+	margin: 20px 890px;
+	padding: 2px;
+	height: 30px;
+	box-shadow: 0.1em 0.1em 0.2em black;
+	cursor: pointer;
+	background: #f4b792;
+	font-style: bold;
+}
+
+a>button:hover{
+	background: #f8efe9;
+	animation: 0.2s;
+	transition: 0.4s;
+}
