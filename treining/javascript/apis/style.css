@@ -1,0 +1,23 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card {
+    display: flex;
+    width: 40vw;
+    height: 15vh;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 10px;
+    margin: auto;
+    font-family: arial;
+    cursor: pointer;
+}
+
+input {
+    width: 17%;
+}

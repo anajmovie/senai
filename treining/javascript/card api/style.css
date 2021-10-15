@@ -1,0 +1,22 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card {
+    display: flex;
+    width: 40vw;
+    height: 20vh;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 10px;
+    margin: auto;
+    font-family: arial;
+}
+
+input {
+    width: 17%;
+}

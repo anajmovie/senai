@@ -1,0 +1,37 @@
+[
+    {
+        "titulo":"It: A Coisa",
+        "autor":"Stephen King",
+        "paginas":1138,
+        "ano":1986,
+        "capa":"https://m.media-amazon.com/images/I/41nngxCNKxL.jpg"
+    },
+    {
+        "titulo":"O Guarani",
+        "autor":"José de Alencar",
+        "paginas":326,
+        "ano":1857,
+        "capa":"https://a-static.mlcdn.com.br/618x463/livro-o-guarani/decortoysbrinquedosepresentes/723d6c008e2811ea83004201ac18501e/31c46092ed67e9f3692fa6cb89c64045.jpg"
+    },
+    {
+        "titulo":"Macunaíma",
+        "autor":"Mário de Andrade",
+        "paginas":283,
+        "ano":1928,
+        "capa":"https://mir-s3-cdn-cf.behance.net/project_modules/disp/ebcc4121331049.562ff618a32ae.jpg"
+    },
+    {
+        "titulo":"O Exorcista",
+        "autor":"William Peter Blatty",
+        "paginas":340,
+        "ano":1971,
+        "capa":"https://m.media-amazon.com/images/I/41HOAr--0ML.jpg"
+    },
+    {
+        "titulo":"Joyland",
+        "autor":"Stephen King",
+        "paginas":288,
+        "ano":2013,
+        "capa":"https://images-na.ssl-images-amazon.com/images/I/814ZDy5YUkL.jpg"
+    }
+]
