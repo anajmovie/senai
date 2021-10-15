@@ -1,0 +1,27 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #edf6f9;
+}
+
+.linha {
+    width: 100vw;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    height: 130px; 
+    width: 130px;
+    margin-top: 35px;
+    background: #4a4e69;
+    cursor: pointer;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
