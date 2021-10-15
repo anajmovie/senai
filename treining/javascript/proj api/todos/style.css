@@ -1,0 +1,12 @@
+@import url('../global/style.css');
+
+.todo {
+    width: 50%;
+    height: 8vh;
+    border: 1px solid gray;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+}

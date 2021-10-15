@@ -1,0 +1,22 @@
+@import url('../global/style.css');
+
+.post{
+    width: 50%;
+    height: 15%;
+    border: 1px solid gray;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.post > #title{
+    font-weight: bold;
+}
+
+.model{
+    visibility: hidden;
+    display: none;
+}
