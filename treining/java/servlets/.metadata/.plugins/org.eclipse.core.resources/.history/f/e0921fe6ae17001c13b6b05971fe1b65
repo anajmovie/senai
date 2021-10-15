@@ -1,0 +1,15 @@
+package domains;
+
+import java.text.ParseException;
+import java.util.Date;
+
+public class Pedido {
+	private int id;
+	private String cliente;
+	private String endereco;
+	private String produto;
+	private Date data;
+	private Date horaPedido;
+	private Date horaInicioEntrega;
+	private Date horaFimEntrega;
+}

@@ -1,0 +1,14 @@
+package controllers.dao;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.util.ArrayList;
+import domains.Pedido;
+
+public class PedidoDAO {
+	private BufferedReader br;
+	private BufferedWriter bw;
+	private String arquivo = "c:\\dbs\\pedidos.csv";
+	private ArrayList<Pedido> pedidos;
+	private Pedido pedido;
+}

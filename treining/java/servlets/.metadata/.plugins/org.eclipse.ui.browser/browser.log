@@ -1,0 +1,9 @@
+
+set. 15, 2021 08:55:42.317 NEW SESSION
+set. 15, 2021 08:55:42.317 [12208:11860:0915/085542.314:ERROR:device_event_log_impl.cc(214)] [08:55:42.315] USB: usb_service_win.cc:258 Failed to get device driver name: Elemento não encontrado. (0x490)
+set. 15, 2021 09:34:32.104 [12208:11860:0915/093432.103:ERROR:device_event_log_impl.cc(214)] [09:34:32.103] USB: usb_service_win.cc:258 Failed to get device driver name: Elemento não encontrado. (0x490)
+set. 15, 2021 11:15:44.418 [12208:11860:0915/111544.418:ERROR:device_event_log_impl.cc(214)] [11:15:44.417] USB: usb_service_win.cc:258 Failed to get device driver name: Elemento não encontrado. (0x490)
+
+set. 17, 2021 07:45:06.974 NEW SESSION
+set. 17, 2021 07:45:06.974 [6476:8344:0917/074506.971:ERROR:device_event_log_impl.cc(214)] [07:45:06.972] USB: usb_service_win.cc:258 Failed to get device driver name: Elemento não encontrado. (0x490)
+set. 17, 2021 10:37:02.793 [1308:9468:0917/103702.793:ERROR:device_event_log_impl.cc(214)] [10:37:02.792] USB: usb_service_win.cc:258 Failed to get device driver name: Elemento não encontrado. (0x490)

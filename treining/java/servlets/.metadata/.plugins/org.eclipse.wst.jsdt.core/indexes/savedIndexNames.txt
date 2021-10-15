@@ -1,0 +1,2 @@
+INDEX VERSION 1.4+C:\Users\Aluno.DSN5131112167\Desktop\2des\pwbe\workspace 2\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+4034139152.index
