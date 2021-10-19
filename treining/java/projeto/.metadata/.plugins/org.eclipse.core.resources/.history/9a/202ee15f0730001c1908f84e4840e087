@@ -1,0 +1,11 @@
+package controller;
+
+import java.util.ArrayList;
+import dao.OperadorDAO;
+import model.Operador;
+
+public class OperadorProcess {
+	
+	private static OperadorDAO op;
+	private static ArrayList<Operador> operadores;
+}

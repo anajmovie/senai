@@ -1,0 +1,9 @@
+package model;
+
+public class Operador {
+	// atributos
+	private int id_caixa;
+	private int id_funcionario;
+	private String nome;
+	private String cpf;
+}

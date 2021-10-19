@@ -1,0 +1,28 @@
+package model;
+
+public class Entregador {
+	// atributos
+	private int id;
+	private String nome;
+	private String veiculo;
+	
+	// contrutor vazio
+	public Entregador() {
+		
+	}
+	
+	// contrutor cheio
+	public Entregador(int id, String nome, String veiculo) {
+		this.id = id;
+		this.nome = nome;
+		this.veiculo = veiculo;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+}

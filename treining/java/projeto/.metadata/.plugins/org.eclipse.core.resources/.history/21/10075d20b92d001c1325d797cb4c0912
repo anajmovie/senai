@@ -1,0 +1,17 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import model.Entregador;
+
+public class EntregadorDAO {
+	// atributos principais
+	private Connection con;
+	private PreparedStatement ps;
+	private Entregador entregador;
+	private ArrayList<Entregador> entregadores;
+	
+	// listando todos
+	
+}

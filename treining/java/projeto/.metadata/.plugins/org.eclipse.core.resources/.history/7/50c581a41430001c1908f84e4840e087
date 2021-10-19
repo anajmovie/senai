@@ -1,0 +1,7 @@
+package servlet;
+
+@WebServlet("/clientes")
+public class ClienteREST extends HttpServlet {
+	
+	
+}

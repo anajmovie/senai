@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+    <fullyQualifiedTypeName name="com.mysql.jdbc.Driver"/>
+    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="com.mysql.jdbc.PreparedStatement"/>
+    <fullyQualifiedTypeName name="com.mysql.jdbc.ResultSet"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="dao.ConnectionDB"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="dao.ClienteDAO"/>
+    <fullyQualifiedTypeName name="dao.ProdutoDAO"/>
+    <fullyQualifiedTypeName name="model.Produto"/>
+    <fullyQualifiedTypeName name="dao.PedidoDAO"/>
+    <fullyQualifiedTypeName name="model.Pedido"/>
+    <fullyQualifiedTypeName name="dao.EntregadorDAO"/>
+    <fullyQualifiedTypeName name="model.Entregador"/>
+    <fullyQualifiedTypeName name="dao.OperadorDAO"/>
+    <fullyQualifiedTypeName name="model.Operador"/>
+    <fullyQualifiedTypeName name="dao.ItemDAO"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="model.ItemPedido"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="controller.ClienteProcess"/>
+    <fullyQualifiedTypeName name="model.Cliente"/>
+    <fullyQualifiedTypeName name="org.json.JSONArray"/>
+</qualifiedTypeNameHistroy>

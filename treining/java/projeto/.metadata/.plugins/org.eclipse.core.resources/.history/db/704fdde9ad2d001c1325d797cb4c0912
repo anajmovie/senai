@@ -1,0 +1,80 @@
+package model;
+
+import java.util.Objects;
+
+public class Entregador {
+	// atributos
+	private int id;
+	private String nome;
+	private String veiculo;
+	
+	// contrutor vazio
+	public Entregador() {
+		
+	}
+	
+	// contrutor cheio
+	public Entregador(int id, String nome, String veiculo) {
+		this.id = id;
+		this.nome = nome;
+		this.veiculo = veiculo;
+	}
+
+	// getter e setters
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getVeiculo() {
+		return veiculo;
+	}
+
+	public void setVeiculo(String veiculo) {
+		this.veiculo = veiculo;
+	}
+
+	// hash e equals
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Entregador other = (Entregador) obj;
+		return id == other.id;
+	}
+
+	
+	@Override
+	public String toString() {
+		return id + "\t" + nome + "\t" + veiculo + "\n";
+	}
+	
+	public String toCSV() {
+		return id + ";" + nome + ";" + veiculo + "\r\n";
+	}
+	
+	
+	
+	
+	
+}

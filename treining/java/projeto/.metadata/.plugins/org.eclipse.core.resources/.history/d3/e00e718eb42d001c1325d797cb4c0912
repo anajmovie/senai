@@ -1,0 +1,149 @@
+package model;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Objects;
+
+public class Pedido {
+	// atributos principais
+	private int idPedido;
+	private Cliente cliente;
+	private Entregador entregador;
+	private Operador caixa;
+	private Date data;
+	private Date hora_pedido;
+	private Date hora_inicio;
+	private Date hora_fim;
+	
+	// atributos de formatação de hora e data
+	private SimpleDateFormat fd = new SimpleDateFormat("yyyy-MM-dd");
+	private SimpleDateFormat fh = new SimpleDateFormat("hh:mm");
+	
+	// contrutor vazio
+	public Pedido() {
+		
+	}
+	
+	// construtor do id - string
+	public Pedido(String idPedido) {
+		this.idPedido = Integer.valueOf(idPedido);
+	}
+	
+	// contrutor cheio
+	public Pedido(int idPedido, Cliente cliente, Entregador entregador, Operador caixa, Date data, Date hora_pedidPedidoo,Date hora_inicio, Date hora_fim) {
+		this.idPedido = idPedido;
+		this.cliente = cliente;
+		this.entregador = entregador;
+		this.caixa = caixa;
+		this.data = data;
+		this.hora_pedido = hora_pedido;
+		this.hora_inicio = hora_inicio;
+		this.hora_fim = hora_fim;
+	}
+	
+	// consturto cheio - string
+	public Pedido(String idPedido, String idCliente, String idEntregador, String idCaixa, String data, String hora_pedido,String hora_inicio, String hora_fim) {
+		this.idPedido = Integer.valueOf(idPedido);
+		this.cliente = new Cliente(idCliente);
+		this.entregador = new Entregador(idEntregador);
+		this.caixa = new Operador(idCaixa);
+		try {
+			this.data = fd.parse(data);
+			this.hora_pedido = fh.parse(hora_pedido);
+			this.hora_inicio = fh.parse(hora_inicio);
+			this.hora_fim = fh.parse(hora_fim);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+	}
+
+	// getter e setters
+	public int getidPedido() {
+		return idPedido;
+	}
+
+	public void setidPedido(int idPedido) {
+		this.idPedido = idPedido;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public Entregador getEntregador() {
+		return entregador;
+	}
+
+	public void setEntregador(Entregador entregador) {
+		this.entregador = entregador;
+	}
+
+	public Operador getCaixa() {
+		return caixa;
+	}
+
+	public void setCaixa(Operador caixa) {
+		this.caixa = caixa;
+	}
+
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}
+
+	public Date getHora_pedidPedidoo() {
+		return hora_pedido;
+	}
+
+	public void setHora_pedidPedidoo(Date hora_pedido) {
+		this.hora_pedido = hora_pedido;
+	}
+
+	public Date getHora_inicio() {
+		return hora_inicio;
+	}
+
+	public void setHora_inicio(Date hora_inicio) {
+		this.hora_inicio = hora_inicio;
+	}
+
+	public Date getHora_fim() {
+		return hora_fim;
+	}
+
+	public void setHora_fim(Date hora_fim) {
+		this.hora_fim = hora_fim;
+	}
+
+	// hash e equals
+	@Override
+	public int hashCode() {
+		return Objects.hash(idPedido);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pedido other = (Pedido) obj;
+		return idPedido == other.idPedido;
+	}
+
+	@Override
+	public String toString() {
+		return idPedido + "\t" + cliente.getidCliente() + "\t" + entregador.getidEntregador() + "\t" + caixa.getIdCaixa() + "\t" + fd.format(data) + "\t" 
+				+ fh.format(hora_pedido) + "\t" + fh.format(hora_inicio) + "\t" + fh.format(hora_fim) + "\n";
+	}
+}

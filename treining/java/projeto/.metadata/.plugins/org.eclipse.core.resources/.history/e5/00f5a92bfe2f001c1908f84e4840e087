@@ -1,0 +1,42 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import model.Cliente;
+import model.Entregador;
+import model.Operador;
+import model.Pedido;
+
+public class PedidoDAO {
+	// atributos principais
+	private Connection con;
+	private PreparedStatement ps;
+	private Pedido pedido;
+	private ArrayList<Pedido> pedidos;
+	
+	// listando todos
+	public ArrayList<Pedido> readAll() throws SQLException{
+		pedidos = new ArrayList<>();
+		String query = "select * from pedidos;";
+		con = ConnectionDB.getConnection();
+		ps = con.prepareStatement(query);
+		ResultSet rs = ps.executeQuery();
+		while(rs.next()) {
+			pedido = new ArrayList();
+			pedido.setidPedido(rs.getInt("id_pedido"));
+			pedido.setCliente(new Cliente(rs.getString("id_cliente")));
+			pedido.setEntregador(new Entregador(rs.getString("id_entregador")));
+			pedido.setCaixa(new Operador(rs.getString("id_caixa")));
+			pedido.setData(rs.getDate("data"));
+			pedido.setHora_pedidPedidoo(rs);
+			pedido.sethoraInicio(rs.getTime("hora_inicio"));
+			pedido.sethoraFim(rs.getTime("hora_fim"));
+			pedidos.add(pedido);
+		}
+		con.close();
+		return pedidos;
+	}
+}

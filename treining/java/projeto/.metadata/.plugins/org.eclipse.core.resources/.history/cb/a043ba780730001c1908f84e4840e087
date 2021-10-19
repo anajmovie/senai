@@ -1,0 +1,17 @@
+package controller;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import dao.OperadorDAO;
+import model.Operador;
+
+public class OperadorProcess {
+	
+	private static OperadorDAO op;
+	private static ArrayList<Operador> operadores;
+	
+	public static void carregarDados() throws SQLException {
+		op = new OperadorDAO();
+		operadores = op.readAll();
+	}
+}

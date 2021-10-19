@@ -1,0 +1,17 @@
+package controller;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import dao.EntregadorDAO;
+import model.Entregador;
+
+public class EntregadorProcess {
+	
+	private static EntregadorDAO ep;
+	private static ArrayList<Entregador> entregadores;
+	
+	public static void carregarDados() throws SQLException {
+		ep = new EntregadorDAO();
+		entregadores = ep.readAll();
+	}
+}

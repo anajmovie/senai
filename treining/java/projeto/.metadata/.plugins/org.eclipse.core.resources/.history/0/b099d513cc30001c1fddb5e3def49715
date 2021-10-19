@@ -1,0 +1,37 @@
+package servlet;
+
+import java.io.IOException;
+import java.sql.SQLException;
+
+import org.json.JSONArray;
+
+import controller.ClienteProcess;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+@WebServlet("/clientes")
+public class ClienteREST extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L;
+	
+	// listando
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		resp.setContentType("application/json"); // configura a resposta no formato json
+		resp.setCharacterEncoding("utf8"); // configuração do charset
+		
+		try {
+			ClienteProcess.carregarDados(); // abrindo e lendo os dados do arraylist
+			JSONArray ja = new JSONArray(); // armazena cada objeto json
+			ClienteProcess.clientes.forEach(c -> ja.put(c.toJSON())); // percorre os itens da lista e converte para json
+			resp.getWriter().print(ja); // resposta
+		} catch (SQLException e) {
+			System.out.println("Erro ao carregar dados do banco: "+e);
+		}
+		
+	}
+}

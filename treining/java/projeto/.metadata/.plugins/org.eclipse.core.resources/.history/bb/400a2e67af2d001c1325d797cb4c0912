@@ -1,0 +1,22 @@
+package model;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Pedido {
+	// atributos principais
+	private int id;
+	private Cliente cliente;
+	private Entregador entregador;
+	private Operador caixa;
+	private Date data;
+	private Date hora_pedido;
+	private Date hora_inicio;
+	private Date hora_fim;
+	
+	// atributos de formatação de hora e data
+	private SimpleDateFormat fd = new SimpleDateFormat("yyyy-MM-dd");
+	private SimpleDateFormat fh = new SimpleDateFormat("hh:mm");
+	
+	
+}

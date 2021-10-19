@@ -1,0 +1,94 @@
+package model;
+
+import java.util.Objects;
+
+public class Produto {
+	// atributos
+	private int id;
+	private String nome;
+	private String descricao;
+	private double preco;
+	
+	// contrutor vazio
+	public Produto() {
+		
+	}
+	
+	// contrutor cheio
+	public Produto(int id, String nome, String descricao, double preco) {
+		this.id = id;
+		this.nome = nome;
+		this.descricao = descricao;
+		this.preco = preco;
+	}
+	
+	// contrutor cheio - string
+	public Produto(String id, String nome, String descricao, String preco) {
+		this.id = Integer.valueOf(id);
+		this.nome = nome;
+		this.descricao = descricao;
+		this.preco = Double.valueOf(preco);
+	}
+
+	// getter e setters
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(double preco) {
+		this.preco = preco;
+	}
+
+	// hashcode e equals
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Produto other = (Produto) obj;
+		return id == other.id;
+	}
+
+	// metodo toString
+	@Override
+	public String toString() {
+		return id + "\t" + nome + "\t" + descricao + "\t" + preco + "\n";
+	}
+	
+	// metodo toCSV
+	public String toCSV() {
+		return id + ";" + nome + ";" + descricao + ";" + preco + "\r\n";
+	}
+}
