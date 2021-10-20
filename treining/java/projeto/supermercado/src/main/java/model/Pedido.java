@@ -28,9 +28,20 @@ public class Pedido {
 		
 	}
 	
+	public Pedido(int idPedido) {
+		this.idPedido = idPedido;
+	}
+	
 	// construtor do id - string
 	public Pedido(String idPedido) {
 		this.idPedido = Integer.valueOf(idPedido);
+	}
+	
+	public Pedido(int idPedido, int idCliente, int idEntregador, int idCaixa) {
+		this.idPedido = Integer.valueOf(idPedido);
+		this.cliente = new Cliente(idCliente);
+		this.entregador = new Entregador(idEntregador);
+		this.caixa = new Operador(idCaixa);
 	}
 	
 	// contrutor cheio

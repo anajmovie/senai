@@ -1,3 +1,4 @@
+
 package controller;
 
 import java.sql.SQLException;
@@ -7,11 +8,19 @@ import model.Entregador;
 
 public class EntregadorProcess {
 	
-	private static EntregadorDAO ed;
-	private static ArrayList<Entregador> entregadores;
+	public static EntregadorDAO ed;
+	public static ArrayList<Entregador> entregadores;
 	
 	public static void carregarDados() throws SQLException {
 		ed = new EntregadorDAO();
 		entregadores = ed.readAll();
+	}
+	
+	public static void testes() {
+		entregadores = new ArrayList<>();
+		entregadores.add(new Entregador(1, "Osvaldo Silva", "moto, ABC1D34"));
+		entregadores.add(new Entregador(2, "Murilo Bueno", "moto, CCV3F45"));
+		entregadores.add(new Entregador(3, "Vinicius Mello", "bicicleta"));
+		entregadores.add(new Entregador(4, "Bruno Vieira", "moto, HJL9Y76"));
 	}
 }

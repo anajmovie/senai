@@ -17,6 +17,10 @@ public class Produto {
 		
 	}
 	
+	public Produto(int idProduto) {
+		this.idProduto = idProduto;
+	}
+	
 	// construtor do id - string
 	public Produto(String idProduto) {
 		this.idProduto = Integer.valueOf(idProduto);

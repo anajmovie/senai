@@ -17,6 +17,10 @@ public class Operador {
 		
 	}
 	
+	public Operador(int idCaixa) {
+		this.idCaixa = idCaixa;
+	}
+	
 	// construtor do id - string
 	public Operador(String idCaixa) {
 		this.idCaixa = Integer.valueOf(idCaixa);

@@ -21,6 +21,10 @@ public class Cliente {
 		
 	}
 	
+	public Cliente(int idCliente) {
+		this.idCliente = idCliente;
+	}
+	
 	// construtor do id - string
 	public Cliente(String idCliente) {
 		this.idCliente = Integer.valueOf(idCliente);
