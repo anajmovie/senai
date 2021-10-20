@@ -14,4 +14,20 @@ public class PedidoProcess {
 		pd = new PedidoDAO();
 		pedidos = pd.readAll();
 	}
+	
+	public static int autoIncrementId() {
+		if(pedidos.size()<=0) {
+			return 1;
+		}else {
+			return pedidos.get(pedidos.size()-1).getidPedido()+1;
+		}
+	}
+	
+	public static void testes() {
+		pedidos = new ArrayList<>();
+		pedidos.add(new Pedido(1, 2, 2, 1));
+		pedidos.add(new Pedido(2, 5, 2, 2));
+		pedidos.add(new Pedido(3, 3, 3, 3));
+		pedidos.add(new Pedido(4, 1, 3, 2));
+	}
 }

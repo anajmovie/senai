@@ -16,6 +16,10 @@ public class Entregador {
 		
 	}
 	
+	public Entregador(int idEntregador) {
+		this.idEntregador = idEntregador;
+	}
+	
 	// construtor do id - string
 	public Entregador(String idEntregador) {
 		this.idEntregador = Integer.valueOf(idEntregador);

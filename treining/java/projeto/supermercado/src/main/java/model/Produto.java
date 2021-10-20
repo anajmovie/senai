@@ -5,6 +5,8 @@ import java.util.Objects;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import controller.ProdutoProcess;
+
 public class Produto {
 	// atributos
 	private int idProduto;
@@ -15,6 +17,10 @@ public class Produto {
 	// contrutor vazio
 	public Produto() {
 		
+	}
+	
+	public Produto(int idProduto) {
+		this.idProduto = idProduto;
 	}
 	
 	// construtor do id - string
@@ -33,6 +39,13 @@ public class Produto {
 	// contrutor cheio - string
 	public Produto(String idProduto, String nome, String descricao, String preco) {
 		this.idProduto = Integer.valueOf(idProduto);
+		this.nome = nome;
+		this.descricao = descricao;
+		this.preco = Double.valueOf(preco);
+	}
+	
+	public Produto(String nome, String descricao, String preco) {
+		this.idProduto = ProdutoProcess.autoIncrementId();
 		this.nome = nome;
 		this.descricao = descricao;
 		this.preco = Double.valueOf(preco);

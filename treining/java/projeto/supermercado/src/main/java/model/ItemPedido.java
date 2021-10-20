@@ -14,6 +14,17 @@ public class ItemPedido {
 	public ItemPedido() {
 		
 	}
+	
+	public ItemPedido(String idPedido) {
+		this.pedido = new Pedido(idPedido);
+	}
+	
+	public ItemPedido(int idPedido, int idProduto, int quantidade, double subtotal) {
+		this.pedido = new Pedido(idPedido); 
+		this.produto = new Produto(idProduto);
+		this.quantidade = quantidade;
+		this.subtotal = subtotal;
+	}
 
 	// construtor cheio
 	public ItemPedido(Pedido pedido, Produto produto, int quantidade, double subtotal) {
@@ -31,6 +42,7 @@ public class ItemPedido {
 		this.subtotal = Double.valueOf(subtotal);
 	}
 
+	
 	// getters e setters
 	public Pedido getPedido() {
 		return pedido;
