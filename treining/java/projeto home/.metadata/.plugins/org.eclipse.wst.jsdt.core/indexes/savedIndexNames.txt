@@ -1,7 +1,0 @@
-INDEX VERSION 1.4+C:\Users\Valmir\Desktop\SENAI\2des\PWBE\projeto\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-1042394524.index
-2343811718.index
-4285741987.index
-4219874065.index
-1158017817.index
-3279788496.index
