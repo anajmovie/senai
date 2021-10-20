@@ -1,3 +1,4 @@
+
 package controller;
 
 import java.sql.SQLException;
@@ -15,6 +16,7 @@ public class EntregadorProcess {
 		entregadores = ed.readAll();
 	}
 	
+<<<<<<< HEAD
 	public static int autoIncrementId() {
 		if(entregadores.size()<=0) {
 			return 1;
@@ -23,6 +25,8 @@ public class EntregadorProcess {
 		}
 	}
 	
+=======
+>>>>>>> 5cc34c1647d47740b91a84552c2d35ed9f3350f1
 	public static void testes() {
 		entregadores = new ArrayList<>();
 		entregadores.add(new Entregador(1, "Osvaldo Silva", "moto, ABC1D34"));

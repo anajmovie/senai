@@ -3,6 +3,9 @@ package controller;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import dao.PedidoDAO;
+import model.Cliente;
+import model.Entregador;
+import model.Operador;
 import model.Pedido;
 
 public class PedidoProcess {
@@ -15,6 +18,7 @@ public class PedidoProcess {
 		pedidos = pd.readAll();
 	}
 	
+<<<<<<< HEAD
 	public static int autoIncrementId() {
 		if(pedidos.size()<=0) {
 			return 1;
@@ -23,6 +27,8 @@ public class PedidoProcess {
 		}
 	}
 	
+=======
+>>>>>>> 5cc34c1647d47740b91a84552c2d35ed9f3350f1
 	public static void testes() {
 		pedidos = new ArrayList<>();
 		pedidos.add(new Pedido(1, 2, 2, 1));

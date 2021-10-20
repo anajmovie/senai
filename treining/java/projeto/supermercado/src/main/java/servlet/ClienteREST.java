@@ -1,13 +1,7 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.stream.Collectors;
-
 import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import controller.ClienteProcess;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -45,6 +39,7 @@ public class ClienteREST extends HttpServlet {
 			resp.getWriter().print(ja); // resposta, mostra o vetor json
 		}
 	}
+<<<<<<< HEAD
 	
 	// delete
 	@Override
@@ -66,4 +61,6 @@ public class ClienteREST extends HttpServlet {
 			resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
 		}
 	}
+=======
+>>>>>>> 5cc34c1647d47740b91a84552c2d35ed9f3350f1
 }

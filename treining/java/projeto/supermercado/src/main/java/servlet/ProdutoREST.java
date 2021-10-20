@@ -6,6 +6,10 @@ import java.util.stream.Collectors;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5cc34c1647d47740b91a84552c2d35ed9f3350f1
 import controller.ProdutoProcess;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -44,6 +48,7 @@ public class ProdutoREST extends HttpServlet{
 		}
 	}
 	
+<<<<<<< HEAD
 	// delete
 	@Override
 	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -71,12 +76,17 @@ public class ProdutoREST extends HttpServlet{
 		resp.setContentType("application/json"); // configura a resposta no formato json
 		resp.setCharacterEncoding("utf8"); // configuração do charset
 		
+=======
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+>>>>>>> 5cc34c1647d47740b91a84552c2d35ed9f3350f1
 		ProdutoProcess.testes();
 		
 		String body = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
 		
 		try {
 			JSONObject json = new JSONObject(body);
+<<<<<<< HEAD
 			String nome = json.getString("nome");
 			String descricao = json.getString("descricao");
 			String preco = json.getString("preco");
@@ -86,5 +96,17 @@ public class ProdutoREST extends HttpServlet{
 		} catch (JSONException e) {
 			resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
 		}			
+=======
+			int id = json.getInt("idProduto");
+			String nome = json.getString("nome");
+			String descricao = json.getString("descricao");
+			double preco = json.getDouble("preco");
+			
+			ProdutoProcess.produtos.add(new Produto(id, nome, descricao, preco));
+			resp.setStatus(HttpServletResponse.SC_CREATED);
+		}catch(JSONException e) {
+			resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
+		}
+>>>>>>> 5cc34c1647d47740b91a84552c2d35ed9f3350f1
 	}
 }

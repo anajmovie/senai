@@ -15,8 +15,13 @@ public class ItemPedido {
 		
 	}
 	
+<<<<<<< HEAD
 	public ItemPedido(String idPedido) {
 		this.pedido = new Pedido(idPedido);
+=======
+	public ItemPedido(String id) {
+		this.pedido = new Pedido(id);
+>>>>>>> 5cc34c1647d47740b91a84552c2d35ed9f3350f1
 	}
 	
 	public ItemPedido(int idPedido, int idProduto, int quantidade, double subtotal) {

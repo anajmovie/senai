@@ -15,6 +15,7 @@ public class OperadorProcess {
 		operadores = od.readAll();
 	}
 	
+<<<<<<< HEAD
 	public static int autoIncrementId() {
 		if(operadores.size()<=0) {
 			return 1;
@@ -23,6 +24,8 @@ public class OperadorProcess {
 		}
 	}
 	
+=======
+>>>>>>> 5cc34c1647d47740b91a84552c2d35ed9f3350f1
 	public static void testes() {
 		operadores = new ArrayList<>();
 		operadores.add(new Operador(1, 1, "Franciely Souza", "11111111111"));
