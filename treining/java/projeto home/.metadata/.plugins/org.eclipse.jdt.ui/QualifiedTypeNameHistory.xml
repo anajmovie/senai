@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="controller.ProdutoProcess"/>
+    <fullyQualifiedTypeName name="model.Produto"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.http.HttpServlet"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.annotation.WebServlet"/>
+    <fullyQualifiedTypeName name="controller.EntregadorProcess"/>
+    <fullyQualifiedTypeName name="controller.OperadorProcess"/>
+    <fullyQualifiedTypeName name="model.Cliente"/>
+    <fullyQualifiedTypeName name="model.Entregador"/>
+    <fullyQualifiedTypeName name="model.Operador"/>
+    <fullyQualifiedTypeName name="model.Pedido"/>
+    <fullyQualifiedTypeName name="controller.PedidoProcess"/>
+    <fullyQualifiedTypeName name="model.ItemPedido"/>
+    <fullyQualifiedTypeName name="controller.ItemProcess"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+    <fullyQualifiedTypeName name="org.json.JSONObject"/>
+    <fullyQualifiedTypeName name="org.json.JSONException"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.http.HttpServletResponse"/>
+</qualifiedTypeNameHistroy>
