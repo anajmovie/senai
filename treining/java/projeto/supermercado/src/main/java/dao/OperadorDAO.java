@@ -14,6 +14,7 @@ public class OperadorDAO {
 	private PreparedStatement ps;
 	private Operador operador;
 	private ArrayList<Operador> operadores;
+	private ResultSet rs;
 	
 	// listando todos
 	public ArrayList<Operador> readAll() throws SQLException{
@@ -21,16 +22,49 @@ public class OperadorDAO {
 		String query = "select * from operadores;";
 		con = ConnectionDB.getConnection();
 		ps = con.prepareStatement(query);
-		ResultSet rs = ps.executeQuery();
+		rs = ps.executeQuery();
 		while(rs.next()) {
 			operador = new Operador();
 			operador.setIdCaixa(rs.getInt("id_caixa"));
 			operador.setIdFuncionario(rs.getInt("id_funcionario"));
-			operador.setNome(rs.getString("nome_completo"));
+			operador.setnomeCompleto(rs.getString("nome_completo"));
 			operador.setCpf(rs.getString("cpf"));
 			operadores.add(operador);
 		}
 		con.close();
 		return operadores;
+	}
+	
+	// excluindo pelo id
+	public boolean delete(String idCaixa) throws SQLException {
+		String sql = "delete from operadores where id = ?;";
+		con = ConnectionDB.getConnection();
+		ps = con.prepareStatement(sql);
+		ps.setInt(1, Integer.valueOf(idCaixa));
+		if(ps.executeUpdate() > 0) {
+			con.close();
+			return true;
+		}else {
+			con.close();
+			return false;
+		}
+	}
+	
+	// criando um novo
+	public int create(Operador operador) throws SQLException {
+		String sql = "insert into operadores (id_funcionario, nome_completo, cpf) values (?, ?, ?);";
+		con = ConnectionDB.getConnection();
+		ps = con.prepareStatement(sql);
+		ps.setInt(1, operador.getIdFuncionario());
+		ps.setString(2, operador.getnomeCompleto());
+		ps.setString(3, operador.getCpf());
+		if(ps.executeUpdate() > 0) {
+			rs = ps.getGeneratedKeys();
+			rs.next();
+			con.close();
+			return rs.getInt(1);
+		}else {
+			return 0;
+		}
 	}
 }

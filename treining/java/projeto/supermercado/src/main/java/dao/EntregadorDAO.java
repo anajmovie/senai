@@ -13,6 +13,7 @@ public class EntregadorDAO {
 	private PreparedStatement ps;
 	private Entregador entregador;
 	private ArrayList<Entregador> entregadores;
+	private ResultSet rs;
 	
 	// listando todos
 	public ArrayList<Entregador> readAll() throws SQLException{
@@ -20,15 +21,47 @@ public class EntregadorDAO {
 		String query = "select * from entregadores;";
 		con = ConnectionDB.getConnection();
 		ps = con.prepareStatement(query);
-		ResultSet rs = ps.executeQuery();
+		rs = ps.executeQuery();
 		while(rs.next()) {
 			entregador = new Entregador();
 			entregador.setidEntregador(rs.getInt("id_entregador"));
-			entregador.setNome(rs.getString("nome_completo"));
+			entregador.setnomeCompleto(rs.getString("nome_completo"));
 			entregador.setVeiculo(rs.getString("veiculo"));
 			entregadores.add(entregador);
 		}
 		con.close();
 		return entregadores;
+	}
+	
+	// excluindo pelo id
+	public boolean delete(String idEntregador) throws SQLException {
+		String sql = "delete from entregadores where id = ?;";
+		con = ConnectionDB.getConnection();
+		ps = con.prepareStatement(sql);
+		ps.setInt(1, Integer.valueOf(idEntregador));
+		if(ps.executeUpdate() > 0) {
+			con.close();
+			return true;
+		}else {
+			con.close();
+			return false;
+		}
+	}
+	
+	// criando um novo
+	public int create(Entregador entregador) throws SQLException {
+		String sql = "insert into entregadores (nome_completo, veiculo) values (?, ?);";
+		con = ConnectionDB.getConnection();
+		ps = con.prepareStatement(sql);
+		ps.setString(1, entregador.getnomeCompleto());
+		ps.setString(2, entregador.getVeiculo());
+		if(ps.executeUpdate() > 0) {
+			rs = ps.getGeneratedKeys();
+			rs.next();
+			con.close();
+			return rs.getInt(1);
+		}else {
+			return 0;
+		}
 	}
 }

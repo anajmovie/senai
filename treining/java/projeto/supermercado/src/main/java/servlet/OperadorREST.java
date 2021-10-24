@@ -1,7 +1,9 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.stream.Collectors;
 
 import org.json.JSONArray;
 
@@ -18,6 +20,7 @@ import model.Operador;
 public class OperadorREST extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
+	private PrintWriter out;
 	
 	// read
 	@Override
@@ -25,6 +28,8 @@ public class OperadorREST extends HttpServlet{
 		
 		resp.setContentType("application/json"); // configura a resposta no formato json
 		resp.setCharacterEncoding("utf8"); // configuração do charset
+		
+		out = resp.getWriter();
 		
 		try {
 			OperadorProcess.carregarDados();
@@ -34,42 +39,37 @@ public class OperadorREST extends HttpServlet{
 			if(id != null) {
 				if(OperadorProcess.operadores.contains(new Operador(id))) {
 					int ind = OperadorProcess.operadores.indexOf(new Operador(id)); // obtem o indice
-					resp.getWriter().print(OperadorProcess.operadores.get(ind).toJSON()); // nos da a resposta em formato json
+					out.print(OperadorProcess.operadores.get(ind).toJSON()); // nos da a resposta em formato json
 				}else {
 					resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
 				}
 			}else {
 				JSONArray ja = new JSONArray(); // armazena cada objeto json
 				OperadorProcess.operadores.forEach(o -> ja.put(o.toJSON())); // percorre preenchendo o vetor com dados da lista
-				resp.getWriter().print(ja); // resposta, mostra o vetor json
+				out.print(ja); // resposta, mostra o vetor json
 			}
 		} catch (SQLException e) {
 			System.out.println("Erro ao carregar dados do SGBD: "+e);
 		}
 	}
 	
-	// delete
+	// create
 	@Override
-	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setContentType("application/json"); // configura a resposta no formato json
-		resp.setCharacterEncoding("utf8"); // configuração do charset
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		out = resp.getWriter();
+		String body = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
 		
 		try {
-			OperadorProcess.carregarDados();
-			
-			String id = req.getParameter("idCaixa");
-			if(id != null) {
-				if(OperadorProcess.operadores.contains(new Operador(id))) {
-					int ind = OperadorProcess.operadores.indexOf(new Operador(id));
-					OperadorProcess.operadores.remove(ind);
-				}else {
-					resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
-				}
+			int idCaixa = OperadorProcess.create(body);
+			if(idCaixa > 0) {
+				resp.setStatus(HttpServletResponse.SC_CREATED);
+				out.print("{\"idCaixa\":"+idCaixa+"}");
 			}else {
 				resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
 			}
 		} catch (SQLException e) {
 			System.out.println("Erro ao carregar dados do SGBD: "+e);
+			resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
 		}
 	}
 }

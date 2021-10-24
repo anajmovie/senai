@@ -46,29 +46,4 @@ public class PedidoREST extends HttpServlet{
 			System.out.println("Erro ao carregar dados do SGBD: "+e);
 		}
 	}
-	
-	// delete
-	@Override
-	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setContentType("application/json"); // configura a resposta no formato json
-		resp.setCharacterEncoding("utf8"); // configuração do charset
-		
-		try {
-			PedidoProcess.carregarDados();
-			
-			String id = req.getParameter("idPedido");
-			if(id != null) {
-				if(PedidoProcess.pedidos.contains(new Pedido(id))) {
-					int ind = PedidoProcess.pedidos.indexOf(new Pedido(id));
-					PedidoProcess.pedidos.remove(ind);
-				}else {
-					resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
-				}
-			}else {
-				resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
-			}
-		} catch (SQLException e) {
-			System.out.println("Erro ao carregar dados do SGBD: "+e);
-		}
-	}
 }

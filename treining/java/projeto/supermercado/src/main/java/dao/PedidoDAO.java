@@ -16,6 +16,7 @@ public class PedidoDAO {
 	private PreparedStatement ps; // envio
 	private Pedido pedido;
 	private ArrayList<Pedido> pedidos;
+	private ResultSet rs;
 	
 	// listando todos
 	public ArrayList<Pedido> readAll() throws SQLException{
@@ -25,7 +26,7 @@ public class PedidoDAO {
 		// conecta, executa e retorna os dados
 		con = ConnectionDB.getConnection();
 		ps = con.prepareStatement(query);
-		ResultSet rs = ps.executeQuery(); // resultado
+		rs = ps.executeQuery(); // resultado
 		
 		// percorre o resultado preenchendo a lista
 		while(rs.next()) {
@@ -43,4 +44,41 @@ public class PedidoDAO {
 		con.close(); // fecha a conexao com o banco
 		return pedidos;
 	}
+	
+	// excluindo pelo id
+	public boolean delete(String idPedido) throws SQLException {
+		String sql = "delete from pedidos where id = ?;";
+		con = ConnectionDB.getConnection();
+		ps = con.prepareStatement(sql);
+		ps.setInt(1, Integer.valueOf(idPedido));
+		if(ps.executeUpdate() > 0) {
+			con.close();
+			return true;
+		}else {
+			con.close();
+			return false;
+		}
+	}
+	
+	// criando um novo
+	/*public int create(Pedido pedido) {
+		String sql = "insert into pedidos (id_cliente, id_entregador, id_caixa, data, hora_pedido, hora_inicio, hora_fim) values (?, ?, ?, ?, ?, ?, ?);";
+		con = ConnectionDB.getConnection();
+		ps = con.prepareStatement(sql);
+		ps.setInt(1, pedido.getCliente());
+		ps.setInt(2, pedido.getEntregador());
+		ps.setInt(3, pedido.getCaixa());
+		ps.setDate(4, pedido.getData());
+		ps.setTime(5, pedido.getHora_pedidPedidoo());
+		ps.setTime(7, pedido.gethoraInicio());
+		ps.setTime(8, pedido.gethoraFim());
+		if(ps.executeUpdate() > 0) {
+			rs = ps.getGeneratedKeys();
+			rs.next();
+			con.close();
+			return rs.getInt(1);
+		}else {
+			return 0;
+		}
+	}*/
 }
