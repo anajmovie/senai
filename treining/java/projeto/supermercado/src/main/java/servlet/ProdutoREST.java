@@ -51,7 +51,14 @@ public class ProdutoREST extends HttpServlet{
 		}
 	}
 	
+<<<<<<< Updated upstream
 	
+=======
+<<<<<<< HEAD
+=======
+	
+>>>>>>> 1c5afc4e6cdaacd2b3e543738df9b3aed5458303
+>>>>>>> Stashed changes
 	// create
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -73,12 +80,27 @@ public class ProdutoREST extends HttpServlet{
 		}
 	}
 	
+<<<<<<< Updated upstream
 	
+=======
+<<<<<<< HEAD
+=======
+	
+>>>>>>> 1c5afc4e6cdaacd2b3e543738df9b3aed5458303
+>>>>>>> Stashed changes
 	// delete
 	@Override
 	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		out = resp.getWriter();
+<<<<<<< Updated upstream
 		String idProduto = req.getParameter("idProduto");
+=======
+<<<<<<< HEAD
+		String idProduto = req.getParameter("id_produto");
+=======
+		String idProduto = req.getParameter("idProduto");
+>>>>>>> 1c5afc4e6cdaacd2b3e543738df9b3aed5458303
+>>>>>>> Stashed changes
 		
 		if(idProduto != null) {
 			try {

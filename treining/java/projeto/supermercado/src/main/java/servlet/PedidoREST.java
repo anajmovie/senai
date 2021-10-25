@@ -1,10 +1,13 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.stream.Collectors;
 
 import org.json.JSONArray;
 
+import controller.ClienteProcess;
 import controller.PedidoProcess;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -17,6 +20,7 @@ import model.Pedido;
 public class PedidoREST extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
+	private PrintWriter out;
 	
 	// read
 	@Override
@@ -24,6 +28,8 @@ public class PedidoREST extends HttpServlet{
 		
 		resp.setContentType("application/json"); // configura a resposta no formato json
 		resp.setCharacterEncoding("utf8"); // configuração do charset
+		
+		out = resp.getWriter();
 		
 		try {
 			PedidoProcess.carregarDados();
@@ -33,17 +39,65 @@ public class PedidoREST extends HttpServlet{
 			if(id != null) {
 				if(PedidoProcess.pedidos.contains(new Pedido(id))) {
 					int ind = PedidoProcess.pedidos.indexOf(new Pedido(id)); // obtem o indice
-					resp.getWriter().print(PedidoProcess.pedidos.get(ind).toJSON()); // nos da a resposta em formato json
+					out.print(PedidoProcess.pedidos.get(ind).toJSON()); // nos da a resposta em formato json
 				}else {
 					resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
 				}
 			}else {
 				JSONArray ja = new JSONArray(); // armazena cada objeto json
 				PedidoProcess.pedidos.forEach(p -> ja.put(p.toJSON())); // percorre preenchendo o vetor com dados da lista
-				resp.getWriter().print(ja); // resposta, mostra o vetor json
+				out.print(ja); // resposta, mostra o vetor json
 			}
 		} catch (SQLException e) {
 			System.out.println("Erro ao carregar dados do SGBD: "+e);
 		}
 	}
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+	
+	// create
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		out = resp.getWriter();
+		String body = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+		
+		try {
+			int idPedido = ClienteProcess.create(body);
+			if(idPedido > 0) {
+				resp.setStatus(HttpServletResponse.SC_CREATED);
+				out.print("{\"idPedido\":"+idPedido+"}");
+			}else {
+				resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
+			}
+		} catch (SQLException e) {
+			System.out.println("Erro ao carregar dados do SGBD: "+e);
+			resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
+		}
+	}
+	
+	// delete
+	@Override
+	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		out = resp.getWriter();
+		String idPedido = req.getParameter("id_pedido");
+		if (idPedido != null) {
+			try {
+				if (ClienteProcess.delete(idPedido)) {
+					resp.setStatus(HttpServletResponse.SC_OK);
+				} else {
+					resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+				}
+			} catch (SQLException e) {
+				System.out.println("Erro ao conectar com SGBD: " + e);
+				resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
+			}
+		} else {
+			resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
+			out.print("{ \"erro\":\"Necessário o parâmetro 'id' para exclusão\"}");
+		}
+	}
+=======
+>>>>>>> 1c5afc4e6cdaacd2b3e543738df9b3aed5458303
+>>>>>>> Stashed changes
 }

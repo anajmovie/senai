@@ -4,6 +4,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.stream.Collectors;
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1c5afc4e6cdaacd2b3e543738df9b3aed5458303
+>>>>>>> Stashed changes
 import org.json.JSONArray;
 import controller.ClienteProcess;
 import jakarta.servlet.ServletException;
@@ -67,10 +74,41 @@ public class ClienteREST extends HttpServlet {
 		} catch (SQLException e) {
 			System.out.println("Erro ao carregar dados do SGBD: "+e);
 			resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
 		}
 	}
 	
 	// delete
+<<<<<<< Updated upstream
+=======
+	@Override
+	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		out = resp.getWriter();
+		String idCliente = req.getParameter("id_cliente");
+		if (idCliente != null) {
+			try {
+				if (ClienteProcess.delete(idCliente)) {
+					resp.setStatus(HttpServletResponse.SC_OK);
+				} else {
+					resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+				}
+			} catch (SQLException e) {
+				System.out.println("Erro ao conectar com SGBD: " + e);
+				resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
+			}
+		} else {
+			resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
+			out.print("{ \"erro\":\"Necessário o parâmetro 'id' para exclusão\"}");
+=======
+>>>>>>> 1c5afc4e6cdaacd2b3e543738df9b3aed5458303
+		}
+	}
+	
+	// delete
+>>>>>>> Stashed changes
 	/*@Override
 	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		out = resp.getWriter();

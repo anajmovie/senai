@@ -15,6 +15,7 @@ public class ItemDAO {
 	private PreparedStatement ps;
 	private ItemPedido item;
 	private ArrayList<ItemPedido> itens;
+	private ResultSet rs;
 	
 	// listando todos
 	public ArrayList<ItemPedido> readAll() throws SQLException{
@@ -22,7 +23,7 @@ public class ItemDAO {
 		String query = "select * from itens;";
 		con = ConnectionDB.getConnection();
 		ps = con.prepareStatement(query);
-		ResultSet rs = ps.executeQuery();
+		rs = ps.executeQuery();
 		while(rs.next()) {
 			item = new ItemPedido();
 			item.setPedido(new Pedido(rs.getString("id_pedido")));
@@ -33,5 +34,20 @@ public class ItemDAO {
 		}
 		con.close();
 		return itens;
+	}
+	
+	// excluindo por id
+	public boolean delete(String idPedido) throws SQLException {
+		String sql = "delete from pedidos where id_pedido = ?;";
+		con = ConnectionDB.getConnection();
+		ps = con.prepareStatement(sql);
+		ps.setInt(1, Integer.valueOf(idPedido));
+		if(ps.executeUpdate() > 0) {
+			con.close();
+			return true;
+		}else {
+			con.close();
+			return false;
+		}
 	}
 }
