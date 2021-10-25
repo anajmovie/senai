@@ -55,14 +55,6 @@ public class EntregadorREST extends HttpServlet{
 	}
 	
 	// create
-<<<<<<< Updated upstream
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		out = resp.getWriter();
-		String body = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
-		
-=======
-<<<<<<< HEAD
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		out = resp.getWriter();
@@ -102,28 +94,6 @@ public class EntregadorREST extends HttpServlet{
 		}else {
 			resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
 			out.print("{ \"erro\":\"É necessário o parâmetro 'id' para a exclusão\"}");
-=======
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		out = resp.getWriter();
-		String body = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
-		
->>>>>>> Stashed changes
-		try {
-			int idEntregador = EntregadorProcess.create(body);
-			if(idEntregador > 0) {
-				resp.setStatus(HttpServletResponse.SC_CREATED);
-				out.print("{\"idEntregador\":"+idEntregador+"}");
-			}else {
-				resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
-			}
-		} catch (SQLException e) {
-			System.out.println("Erro ao carregar dados so SGBD: "+e);
-			resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
-<<<<<<< Updated upstream
-=======
->>>>>>> 1c5afc4e6cdaacd2b3e543738df9b3aed5458303
->>>>>>> Stashed changes
 		}
 	}
 }

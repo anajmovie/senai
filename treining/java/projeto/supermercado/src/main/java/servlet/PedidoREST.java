@@ -52,9 +52,6 @@ public class PedidoREST extends HttpServlet{
 			System.out.println("Erro ao carregar dados do SGBD: "+e);
 		}
 	}
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
 	
 	// create
 	@Override
@@ -97,7 +94,4 @@ public class PedidoREST extends HttpServlet{
 			out.print("{ \"erro\":\"Necessário o parâmetro 'id' para exclusão\"}");
 		}
 	}
-=======
->>>>>>> 1c5afc4e6cdaacd2b3e543738df9b3aed5458303
->>>>>>> Stashed changes
 }
