@@ -45,36 +45,9 @@ public class PedidoDAO {
 		return pedidos;
 	}
 	
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
 	// criando
 	/*public int create(Pedido pedido) throws SQLException {
 		String sql = "insert into pedidos(id_cliente, id_entregador, id_caixa, data, hora_pedido, hora_inicio, hora_fim) values (?, ?, ?, ?, ?, ?, ?);";
-=======
->>>>>>> Stashed changes
-	// excluindo pelo id
-	public boolean delete(String idPedido) throws SQLException {
-		String sql = "delete from pedidos where id = ?;";
-		con = ConnectionDB.getConnection();
-		ps = con.prepareStatement(sql);
-		ps.setInt(1, Integer.valueOf(idPedido));
-		if(ps.executeUpdate() > 0) {
-			con.close();
-			return true;
-		}else {
-			con.close();
-			return false;
-		}
-	}
-	
-	// criando um novo
-	/*public int create(Pedido pedido) {
-		String sql = "insert into pedidos (id_cliente, id_entregador, id_caixa, data, hora_pedido, hora_inicio, hora_fim) values (?, ?, ?, ?, ?, ?, ?);";
-<<<<<<< Updated upstream
-=======
->>>>>>> 1c5afc4e6cdaacd2b3e543738df9b3aed5458303
->>>>>>> Stashed changes
 		con = ConnectionDB.getConnection();
 		ps = con.prepareStatement(sql);
 		ps.setInt(1, pedido.getCliente());
@@ -82,18 +55,8 @@ public class PedidoDAO {
 		ps.setInt(3, pedido.getCaixa());
 		ps.setDate(4, pedido.getData());
 		ps.setTime(5, pedido.getHora_pedidPedidoo());
-<<<<<<< Updated upstream
-		ps.setTime(7, pedido.gethoraInicio());
-		ps.setTime(8, pedido.gethoraFim());
-=======
-<<<<<<< HEAD
 		ps.setTime(6, pedido.gethoraInicio());
 		ps.setTime(7, pedido.gethoraFim());
-=======
-		ps.setTime(7, pedido.gethoraInicio());
-		ps.setTime(8, pedido.gethoraFim());
->>>>>>> 1c5afc4e6cdaacd2b3e543738df9b3aed5458303
->>>>>>> Stashed changes
 		if(ps.executeUpdate() > 0) {
 			rs = ps.getGeneratedKeys();
 			rs.next();
@@ -103,9 +66,6 @@ public class PedidoDAO {
 			return 0;
 		}
 	}*/
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
 	
 	// excluindo por id
 	public boolean delete(String idPedido) throws SQLException {
@@ -121,7 +81,4 @@ public class PedidoDAO {
 			return false;
 		}
 	}
-=======
->>>>>>> 1c5afc4e6cdaacd2b3e543738df9b3aed5458303
->>>>>>> Stashed changes
 }

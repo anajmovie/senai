@@ -11,7 +11,6 @@ public class ProdutoDAO {
 	// atributos principais
 	private Connection con; // conexao
 	private PreparedStatement ps; // envio
-	private ResultSet rs;
 	private Produto produto;
 	private ArrayList<Produto> produtos;
 	private ResultSet rs;
@@ -37,30 +36,6 @@ public class ProdutoDAO {
 		return produtos;
 	}
 	
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
-	// deletando pelo id
-	public boolean delete(String idProduto) throws SQLException {
-		String sql = "delete from produtos where id = ?;";
-		con = ConnectionDB.getConnection();
-		ps = con.prepareStatement(sql);
-		ps.setInt(1, Integer.valueOf(idProduto));
-		if(ps.executeUpdate() > 0) {
-			con.close();
-			return true;
-		}else {
-			con.close();
-			return false;
-		}
-	}
-	
-<<<<<<< Updated upstream
-=======
->>>>>>> 1c5afc4e6cdaacd2b3e543738df9b3aed5458303
->>>>>>> Stashed changes
 	// criando um novo
 	public int create(Produto produto) throws SQLException {
 		String sql = "insert into produtos(nome, descricao, preco) values (?, ?, ?);";
@@ -78,9 +53,6 @@ public class ProdutoDAO {
 			return 0;
 		}
 	}
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
 	
 	// deletando pelo id
 	public boolean delete(String idProduto) throws SQLException {
@@ -96,7 +68,4 @@ public class ProdutoDAO {
 			return false;
 		}
 	}
-=======
->>>>>>> 1c5afc4e6cdaacd2b3e543738df9b3aed5458303
->>>>>>> Stashed changes
 }

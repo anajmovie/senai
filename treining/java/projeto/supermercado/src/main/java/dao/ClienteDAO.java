@@ -36,30 +36,6 @@ public class ClienteDAO {
 		return clientes;
 	}
 	
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
-	// excluindo por id
-	public boolean delete(String idCliente) throws SQLException {
-		String sql = "delete from clientes where id = ?;";
-		con = ConnectionDB.getConnection();
-		ps = con.prepareStatement(sql);
-		ps.setInt(1, Integer.valueOf(idCliente));
-		if(ps.executeUpdate() > 0) {
-			con.close();
-			return true;
-		}else {
-			con.close();
-			return false;
-		}
-	}
-	
-<<<<<<< Updated upstream
-=======
->>>>>>> 1c5afc4e6cdaacd2b3e543738df9b3aed5458303
->>>>>>> Stashed changes
 	// criando
 	public int create(Cliente cliente) throws SQLException {
 		String sql = "insert into clientes(nome_completo, cpf, email, telefone, senha, endereco) values (?, ?, ?, ?, ?, ?);";
@@ -80,9 +56,6 @@ public class ClienteDAO {
 			return 0;
 		}
 	}
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
 	
 	// excluindo por id
 	public boolean delete(String idCliente) throws SQLException {
@@ -98,7 +71,4 @@ public class ClienteDAO {
 			return false;
 		}
 	}
-=======
->>>>>>> 1c5afc4e6cdaacd2b3e543738df9b3aed5458303
->>>>>>> Stashed changes
 }
