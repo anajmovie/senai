@@ -30,21 +30,6 @@ public class ClienteProcess {
 		clientes = cd.readAll();
 	}
 	
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
-	// deletando
-	public static boolean delete(String idCliente) throws SQLException {
-		cd = new ClienteDAO();
-		return cd.delete(idCliente);
-	}
-	
-<<<<<<< Updated upstream
-=======
->>>>>>> 1c5afc4e6cdaacd2b3e543738df9b3aed5458303
->>>>>>> Stashed changes
 	// criando
 	public static int create(String body) throws SQLException {
 		cd = new ClienteDAO();
@@ -62,10 +47,6 @@ public class ClienteProcess {
 		}
 		return cd.create(cliente);
 	}
-<<<<<<< Updated upstream
-}
-=======
-<<<<<<< HEAD
 	
 	// deletando
 	public static boolean delete(String idCliente) throws SQLException {
@@ -73,7 +54,3 @@ public class ClienteProcess {
 		return cd.delete(idCliente);
 	}
 }
-=======
-}
->>>>>>> 1c5afc4e6cdaacd2b3e543738df9b3aed5458303
->>>>>>> Stashed changes

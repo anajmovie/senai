@@ -24,35 +24,12 @@ public class OperadorProcess {
 		}
 	}
 	
-<<<<<<< Updated upstream
-	//listando
-=======
-<<<<<<< HEAD
 	// listando
-=======
-	//listando
->>>>>>> 1c5afc4e6cdaacd2b3e543738df9b3aed5458303
->>>>>>> Stashed changes
 	public static void carregarDados() throws SQLException {
 		od = new OperadorDAO();
 		operadores = od.readAll();
 	}
 	
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
-	// deletando
-	public static boolean delete(String idCaixa) throws SQLException {
-		od = new OperadorDAO();
-		return od.delete(idCaixa);
-	}
-	
-<<<<<<< Updated upstream
-=======
->>>>>>> 1c5afc4e6cdaacd2b3e543738df9b3aed5458303
->>>>>>> Stashed changes
 	// criando
 	public static int create(String body) throws SQLException {
 		od = new OperadorDAO();
@@ -67,16 +44,10 @@ public class OperadorProcess {
 		}
 		return od.create(operador);
 	}
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
 	
 	// deletando
 	public static boolean delete(String idCaixa) throws SQLException {
 		od = new OperadorDAO();
 		return od.delete(idCaixa);
 	}
-=======
->>>>>>> 1c5afc4e6cdaacd2b3e543738df9b3aed5458303
->>>>>>> Stashed changes
 }

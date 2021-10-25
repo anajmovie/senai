@@ -1,4 +1,3 @@
-
 package controller;
 
 import java.sql.SQLException;
@@ -31,22 +30,6 @@ public class EntregadorProcess {
 		entregadores = ed.readAll();
 	}
 	
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
-	// deletando
-	public static boolean delete(String idEntregador) throws SQLException {
-		ed = new EntregadorDAO();
-		return ed.delete(idEntregador);
-	}
-	
-	
-<<<<<<< Updated upstream
-=======
->>>>>>> 1c5afc4e6cdaacd2b3e543738df9b3aed5458303
->>>>>>> Stashed changes
 	// criando
 	public static int create(String body) throws SQLException {
 		ed = new EntregadorDAO();
@@ -60,16 +43,10 @@ public class EntregadorProcess {
 		}
 		return ed.create(entregador);
 	}
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
 	
 	// deletando
 	public static boolean delete(String idEntregador) throws SQLException {
 		ed = new EntregadorDAO();
 		return ed.delete(idEntregador);
 	}
-=======
->>>>>>> 1c5afc4e6cdaacd2b3e543738df9b3aed5458303
->>>>>>> Stashed changes
 }

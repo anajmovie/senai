@@ -16,14 +16,8 @@ public class PedidoProcess {
 
 	public static PedidoDAO pd;
 	public static ArrayList<Pedido> pedidos;
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
 	private static JSONObject jo;
 	public static Pedido pedido;
-=======
->>>>>>> 1c5afc4e6cdaacd2b3e543738df9b3aed5458303
->>>>>>> Stashed changes
 	
 	public static int autoIncrementId() {
 		if(pedidos.size()<=0) {
@@ -39,10 +33,6 @@ public class PedidoProcess {
 		pedidos = pd.readAll();
 	}
 	
-<<<<<<< Updated upstream
-
-=======
-<<<<<<< HEAD
 	// criando
 	/*public static int create(String body) throws SQLException {
 		pd = new PedidoDAO();
@@ -67,8 +57,4 @@ public class PedidoProcess {
 		pd = new PedidoDAO();
 		return pd.delete(idPedido);
 	}
-=======
-
->>>>>>> 1c5afc4e6cdaacd2b3e543738df9b3aed5458303
->>>>>>> Stashed changes
 }
