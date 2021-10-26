@@ -1,10 +1,14 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.util.ArrayList;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import model.Cliente;
 import model.Entregador;
 import model.Operador;
@@ -46,17 +50,17 @@ public class PedidoDAO {
 	}
 	
 	// criando
-	/*public int create(Pedido pedido) throws SQLException {
+	public int create(Pedido pedido) throws SQLException {
 		String sql = "insert into pedidos(id_cliente, id_entregador, id_caixa, data, hora_pedido, hora_inicio, hora_fim) values (?, ?, ?, ?, ?, ?, ?);";
 		con = ConnectionDB.getConnection();
 		ps = con.prepareStatement(sql);
-		ps.setInt(1, pedido.getCliente());
-		ps.setInt(2, pedido.getEntregador());
-		ps.setInt(3, pedido.getCaixa());
-		ps.setDate(4, pedido.getData());
-		ps.setTime(5, pedido.getHora_pedidPedidoo());
-		ps.setTime(6, pedido.gethoraInicio());
-		ps.setTime(7, pedido.gethoraFim());
+		ps.setInt(1, pedido.getCliente().getidCliente());
+		ps.setInt(2, pedido.getEntregador().getidEntregador());
+		ps.setInt(3, pedido.getCaixa().getIdCaixa());
+		ps.setDate(4, Date.valueOf(LocalDate.now())); // localDate representa uma data, o now() é a data de hoje
+		ps.setTime(5, Time.valueOf(LocalTime.now())); // localTime representa um horário
+		ps.setTime(6, (Time) pedido.gethoraInicio());
+		ps.setTime(7, (Time) pedido.gethoraFim());
 		if(ps.executeUpdate() > 0) {
 			rs = ps.getGeneratedKeys();
 			rs.next();
@@ -65,7 +69,7 @@ public class PedidoDAO {
 		}else {
 			return 0;
 		}
-	}*/
+	}
 	
 	// excluindo por id
 	public boolean delete(String idPedido) throws SQLException {

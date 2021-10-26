@@ -36,9 +36,27 @@ public class ItemDAO {
 		return itens;
 	}
 	
+	// criando
+		public int create(ItemPedido item) throws SQLException {
+			String sql = "insert into itens(id_produto, quantidade, subtotal) values (?, ?, ?);";
+			con = ConnectionDB.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, item.getProduto().getidProduto());
+			ps.setInt(2, item.getQuantidade());
+			ps.setDouble(3, item.getsubtotal());
+			if(ps.executeUpdate() > 0) {
+				rs = ps.getGeneratedKeys();
+				rs.next();
+				con.close();
+				return rs.getInt(1);
+			}else {
+				return 0;
+			}
+		}
+	
 	// excluindo por id
 	public boolean delete(String idPedido) throws SQLException {
-		String sql = "delete from pedidos where id_pedido = ?;";
+		String sql = "delete from itens where id_pedido = ?;";
 		con = ConnectionDB.getConnection();
 		ps = con.prepareStatement(sql);
 		ps.setInt(1, Integer.valueOf(idPedido));
