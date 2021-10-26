@@ -3,7 +3,7 @@ package controller;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import org.json.JSONException;
 import org.json.JSONObject;
 import dao.PedidoDAO;
@@ -34,7 +34,7 @@ public class PedidoProcess {
 	}
 	
 	// criando
-	/*public static int create(String body) throws SQLException {
+	public static int create(String body) throws SQLException {
 		pd = new PedidoDAO();
 		try {
 			jo = new JSONObject(body);
@@ -50,7 +50,7 @@ public class PedidoProcess {
 			System.out.println("Erro ao receber JSON: "+e);
 		}
 		return pd.create(pedido);
-	}*/
+	}
 	
 	// deletando
 	public static boolean delete(String idPedido) throws SQLException {
