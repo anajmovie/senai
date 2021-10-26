@@ -9,7 +9,7 @@ public class Operador {
 	// atributos
 	private int idCaixa;
 	private int idFuncionario;
-	private String nome;
+	private String nomeCompleto;
 	private String cpf;
 	
 	// contrutor vazio
@@ -27,18 +27,18 @@ public class Operador {
 	}
 
 	// contrutor cheio
-	public Operador(int idCaixa, int idFuncionario, String nome, String cpf) {
+	public Operador(int idCaixa, int idFuncionario, String nomeCompleto, String cpf) {
 		this.idCaixa = idCaixa;
 		this.idFuncionario = idFuncionario;
-		this.nome = nome;
+		this.nomeCompleto = nomeCompleto;
 		this.cpf = cpf;
 	}
 	
 	// contrutor cheio - string
-	public Operador(String idCaixa, String idFuncionario, String nome, String cpf) {
+	public Operador(String idCaixa, String idFuncionario, String nomeCompleto, String cpf) {
 		this.idCaixa = Integer.valueOf(idCaixa);
 		this.idFuncionario = Integer.valueOf(idFuncionario);
-		this.nome = nome;
+		this.nomeCompleto = nomeCompleto;
 		this.cpf = cpf;
 	}
 
@@ -59,12 +59,12 @@ public class Operador {
 		this.idFuncionario = idFuncionario;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getnomeCompleto() {
+		return nomeCompleto;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setnomeCompleto(String nomeCompleto) {
+		this.nomeCompleto = nomeCompleto;
 	}
 
 	public String getCpf() {
@@ -95,19 +95,19 @@ public class Operador {
 
 	@Override
 	public String toString() {
-		return idCaixa + "\t" + idFuncionario + "\t" + nome + "\t" + cpf + "\n";
+		return idCaixa + "\t" + idFuncionario + "\t" + nomeCompleto + "\t" + cpf + "\n";
 	}
 
 	public String toCSV() {
-		return idCaixa + ";" + idFuncionario + ";" + nome + ";" + cpf + "\r\n";
+		return idCaixa + ";" + idFuncionario + ";" + nomeCompleto + ";" + cpf + "\r\n";
 	}
 	
 	public JSONObject toJSON() {
 		JSONObject json = new JSONObject();
 		try {
-			json.put("idCaixa", idCaixa);
-			json.put("idFuncionario", idFuncionario);
-			json.put("nome", nome);
+			json.put("id_caixa", idCaixa);
+			json.put("id_funcionario", idFuncionario);
+			json.put("nome_completo", nomeCompleto);
 			json.put("cpf", cpf);
 		}catch(JSONException e) {
 			System.out.println("Erro ao converter json: "+e);

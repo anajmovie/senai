@@ -116,7 +116,7 @@ public class Produto {
 	public JSONObject toJSON() {
 		JSONObject json = new JSONObject();
 		try {
-			json.put("idProduto", idProduto);
+			json.put("id_produto", idProduto);
 			json.put("nome", nome);
 			json.put("descricao", descricao);
 			json.put("preco", preco);

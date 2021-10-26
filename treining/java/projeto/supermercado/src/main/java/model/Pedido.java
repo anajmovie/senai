@@ -185,7 +185,7 @@ public class Pedido {
 	public JSONObject toJSON() {
 		JSONObject json = new JSONObject();
 		try {
-			json.put("idPedido", idPedido);
+			json.put("id_pedido", idPedido);
 			if(cliente != null) {
 				json.put("cliente", cliente.toJSON());
 			}
@@ -199,13 +199,13 @@ public class Pedido {
 				json.put("data", fd.format(data));
 			}
 			if(horaPedido != null) {
-				json.put("horaPedido", fh.format(horaPedido));
+				json.put("hora_pedido", fh.format(horaPedido));
 			}
 			if(horaInicio != null) {
-				json.put("horaInicio", fh.format(horaInicio));
+				json.put("hora_inicio", fh.format(horaInicio));
 			}
 			if(horaFim != null) {
-				json.put("horFim", fh.format(horaFim));
+				json.put("hora_fim", fh.format(horaFim));
 			}
 		}catch(JSONException e) {
 			System.out.println("Erro ao converter json: "+e);

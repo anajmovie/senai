@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class Entregador {
 	// atributos
 	private int idEntregador;
-	private String nome;
+	private String nomeCompleto;
 	private String veiculo;
 	
 	// contrutor vazio
@@ -26,16 +26,16 @@ public class Entregador {
 	}
 	
 	// contrutor cheio
-	public Entregador(int idEntregador, String nome, String veiculo) {
+	public Entregador(int idEntregador, String nomeCompleto, String veiculo) {
 		this.idEntregador = idEntregador;
-		this.nome = nome;
+		this.nomeCompleto = nomeCompleto;
 		this.veiculo = veiculo;
 	}
 	
 	// contrutor cheio - string
-	public Entregador(String idEntregador, String nome, String veiculo) {
+	public Entregador(String idEntregador, String nomeCompleto, String veiculo) {
 		this.idEntregador = Integer.valueOf(idEntregador);
-		this.nome = nome;
+		this.nomeCompleto = nomeCompleto;
 		this.veiculo = veiculo;
 	}
 
@@ -48,12 +48,12 @@ public class Entregador {
 		this.idEntregador = idEntregador;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getnomeCompleto() {
+		return nomeCompleto;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setnomeCompleto(String nomeCompleto) {
+		this.nomeCompleto = nomeCompleto;
 	}
 
 	public String getVeiculo() {
@@ -85,18 +85,18 @@ public class Entregador {
 	
 	@Override
 	public String toString() {
-		return idEntregador + "\t" + nome + "\t" + veiculo + "\n";
+		return idEntregador + "\t" + nomeCompleto + "\t" + veiculo + "\n";
 	}
 	
 	public String toCSV() {
-		return idEntregador + ";" + nome + ";" + veiculo + "\r\n";
+		return idEntregador + ";" + nomeCompleto + ";" + veiculo + "\r\n";
 	}
 	
 	public JSONObject toJSON() {
 		JSONObject json = new JSONObject();
 		try {
-			json.put("idEntregador", idEntregador);
-			json.put("nome", nome);
+			json.put("id_entregador", idEntregador);
+			json.put("nome_completo", nomeCompleto);
 			json.put("veiculo", veiculo);
 		}catch(JSONException e) {
 			System.out.println("Erro ao converter json: "+e);

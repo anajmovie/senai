@@ -10,7 +10,7 @@ public class Cliente {
 	// atributos
 	private int idCliente;
 	private String cpf;
-	private String nome;
+	private String nomeCompleto;
 	private String email;
 	private String senha;
 	private String endereco;
@@ -31,10 +31,10 @@ public class Cliente {
 	}
 
 	// contrutor cheio
-	public Cliente(int idCliente, String cpf, String nome, String email, String senha, String endereco, String telefone) {
+	public Cliente(int idCliente, String cpf, String nomeCompleto, String email, String senha, String endereco, String telefone) {
 		this.idCliente = idCliente;
 		this.cpf = cpf;
-		this.nome = nome;
+		this.nomeCompleto = nomeCompleto;
 		this.email = email;
 		this.senha = senha;
 		this.endereco = endereco;
@@ -42,20 +42,20 @@ public class Cliente {
 	}
 	
 	// contrutor cheio - string
-	public Cliente(String idCliente, String cpf, String nome, String email, String senha, String endereco, String telefone) {
+	public Cliente(String idCliente, String cpf, String nomeCompleto, String email, String senha, String endereco, String telefone) {
 		this.idCliente = Integer.valueOf(idCliente);
 		this.cpf = cpf;
-		this.nome = nome;
+		this.nomeCompleto = nomeCompleto;
 		this.email = email;
 		this.senha = senha;
 		this.endereco = endereco;
 		this.telefone = telefone;
 	}
 
-	public Cliente(String cpf, String nome, String email, String senha, String endereco, String telefone) {
+	public Cliente(String cpf, String nomeCompleto, String email, String senha, String endereco, String telefone) {
 		this.idCliente = ClienteProcess.autoIncrementId();
 		this.cpf = cpf;
-		this.nome = nome;
+		this.nomeCompleto = nomeCompleto;
 		this.email = email;
 		this.senha = senha;
 		this.endereco = endereco;
@@ -79,12 +79,12 @@ public class Cliente {
 		this.cpf = cpf;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getnomeCompleto() {
+		return nomeCompleto;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setnomeCompleto(String nomeCompleto) {
+		this.nomeCompleto = nomeCompleto;
 	}
 
 	public String getEmail() {
@@ -140,20 +140,20 @@ public class Cliente {
 	// metodo toString
 	@Override
 	public String toString() {
-		return idCliente + "\t" + cpf + "\t" + nome + "\t" + email + "\t" + senha + "\t" + endereco + "\t" + telefone + "\n";
+		return idCliente + "\t" + cpf + "\t" + nomeCompleto + "\t" + email + "\t" + senha + "\t" + endereco + "\t" + telefone + "\n";
 	}
 	
 	// metodo toCSV
 	public String toCSV() {
-		return idCliente + ";" + cpf + ";" + nome + ";" + email + ";" + senha + ";" + endereco + ";" + telefone + "\r\n";
+		return idCliente + ";" + cpf + ";" + nomeCompleto + ";" + email + ";" + senha + ";" + endereco + ";" + telefone + "\r\n";
 	}
 
 	public JSONObject toJSON() {
 		JSONObject json = new JSONObject();
 		try {
-			json.put("idCliente", idCliente);
+			json.put("id_cliente", idCliente);
 			json.put("cpf", cpf);
-			json.put("nome", nome);
+			json.put("nome_completo", nomeCompleto);
 			json.put("email", email);
 			json.put("senha", senha);
 			json.put("endereco", endereco);
