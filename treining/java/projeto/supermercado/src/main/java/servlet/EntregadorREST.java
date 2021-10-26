@@ -4,11 +4,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.stream.Collectors;
-
 import org.json.JSONArray;
-
 import controller.EntregadorProcess;
-import controller.OperadorProcess;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -82,7 +79,7 @@ public class EntregadorREST extends HttpServlet{
 		
 		if(idEntregador != null) {
 			try {
-				if(OperadorProcess.delete(idEntregador)) {
+				if(EntregadorProcess.delete(idEntregador)) {
 					resp.setStatus(HttpServletResponse.SC_OK);
 				}else {
 					resp.setStatus(HttpServletResponse.SC_NOT_FOUND);

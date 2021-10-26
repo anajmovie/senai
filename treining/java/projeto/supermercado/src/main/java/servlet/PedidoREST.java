@@ -4,10 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.stream.Collectors;
-
 import org.json.JSONArray;
-
-import controller.ClienteProcess;
 import controller.PedidoProcess;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -60,7 +57,7 @@ public class PedidoREST extends HttpServlet{
 		String body = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
 		
 		try {
-			int idPedido = ClienteProcess.create(body);
+			int idPedido = PedidoProcess.create(body);
 			if(idPedido > 0) {
 				resp.setStatus(HttpServletResponse.SC_CREATED);
 				out.print("{\"idPedido\":"+idPedido+"}");
@@ -80,7 +77,7 @@ public class PedidoREST extends HttpServlet{
 		String idPedido = req.getParameter("id_pedido");
 		if (idPedido != null) {
 			try {
-				if (ClienteProcess.delete(idPedido)) {
+				if (PedidoProcess.delete(idPedido)) {
 					resp.setStatus(HttpServletResponse.SC_OK);
 				} else {
 					resp.setStatus(HttpServletResponse.SC_NOT_FOUND);

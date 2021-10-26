@@ -3,10 +3,8 @@ package servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-
+import java.util.stream.Collectors;
 import org.json.JSONArray;
-
-import controller.ClienteProcess;
 import controller.ItemProcess;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -52,6 +50,27 @@ public class ItemREST extends HttpServlet{
 		}
 	}
 	
+	// create
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		out = resp.getWriter();
+		String body = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+		
+		try {
+			int idPedido = ItemProcess.create(body);
+			if(idPedido > 0) {
+				resp.setStatus(HttpServletResponse.SC_CREATED);
+				out.print("{\"id_pedido\":"+idPedido+"}");
+			}else {
+				resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
+			}
+		} catch (SQLException e) {
+			System.out.println("Erro ao carregar dados do SGBD: "+e);
+			resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
+		}
+	}
+	
 	// delete
 	@Override
 	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -59,7 +78,7 @@ public class ItemREST extends HttpServlet{
 		String idPedido = req.getParameter("id_pedido");
 		if (idPedido != null) {
 			try {
-				if (ClienteProcess.delete(idPedido)) {
+				if (ItemProcess.delete(idPedido)) {
 					resp.setStatus(HttpServletResponse.SC_OK);
 				} else {
 					resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
