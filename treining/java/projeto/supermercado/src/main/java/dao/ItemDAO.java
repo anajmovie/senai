@@ -20,16 +20,17 @@ public class ItemDAO {
 	// listando todos
 	public ArrayList<ItemPedido> readAll() throws SQLException{
 		itens = new ArrayList<>();
-		String query = "select * from itens;";
+		
+		String query = "select itens.*, produtos.preco from itens INNER JOIN produtos ON itens.id_produto = produtos.id_produto;";
 		con = ConnectionDB.getConnection();
+		
 		ps = con.prepareStatement(query);
 		rs = ps.executeQuery();
 		while(rs.next()) {
 			item = new ItemPedido();
 			item.setPedido(new Pedido(rs.getString("id_pedido")));
-			item.setProduto(new Produto(rs.getString("id_produto")));
+			item.setProduto(new Produto(rs.getString("id_produto"), rs.getString("preco")));
 			item.setQuantidade(rs.getInt("quantidade"));
-			item.setsubtotal(rs.getDouble("subtotal"));
 			itens.add(item);
 		}
 		con.close();
@@ -38,12 +39,11 @@ public class ItemDAO {
 	
 	// criando
 		public int create(ItemPedido item) throws SQLException {
-			String sql = "insert into itens(id_produto, quantidade, subtotal) values (?, ?, ?);";
+			String sql = "insert into itens(id_produto, quantidade) values (?, ?);";
 			con = ConnectionDB.getConnection();
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, item.getProduto().getidProduto());
 			ps.setInt(2, item.getQuantidade());
-			ps.setDouble(3, item.getsubtotal());
 			if(ps.executeUpdate() > 0) {
 				rs = ps.getGeneratedKeys();
 				rs.next();

@@ -50,4 +50,20 @@ public class ProdutoProcess {
 		pd = new ProdutoDAO();
 		return pd.delete(idProduto);
 	}
+	
+	// editando
+	public static boolean update(String body) throws SQLException {
+		pd = new ProdutoDAO();
+		try {
+			jo = new JSONObject(body);
+			produto = new Produto();
+			produto.setidProduto(jo.getInt("id_produto"));
+			produto.setNome(jo.getString("nome"));
+			produto.setDescricao(jo.getString("descricao"));
+			produto.setPreco(jo.getDouble("preco"));
+		} catch (JSONException e) {
+			System.out.println("Erro ao receber JSON: "+e);
+		}
+		return pd.update(produto) > 0;
+	}
 }

@@ -67,4 +67,16 @@ public class OperadorDAO {
 			return false;
 		}
 	}
+	
+	// editando pelo id
+	public int update(Operador operador) throws SQLException {
+		String sql = "update operadores set id_funcionario = ?, nome_completo = ?, cpf = ? where id_caixa = ?;";
+		con = ConnectionDB.getConnection();
+		ps = con.prepareStatement(sql);
+		ps.setInt(1, operador.getIdFuncionario());
+		ps.setString(2, operador.getnomeCompleto());
+		ps.setString(3, operador.getCpf());
+		ps.setInt(4, operador.getIdCaixa());
+		return ps.executeUpdate();
+	}
 }

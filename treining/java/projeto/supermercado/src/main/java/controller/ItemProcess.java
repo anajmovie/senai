@@ -29,7 +29,6 @@ public class ItemProcess {
 			item = new ItemPedido();
 			item.setProduto(new Produto(jo.getInt("id_produto")));
 			item.setQuantidade(jo.getInt("quantidade"));
-			item.setsubtotal(jo.getDouble("subtotal"));
 		} catch (JSONException e) {
 			System.out.println("Erro ao receber JSON: "+e);
 		}

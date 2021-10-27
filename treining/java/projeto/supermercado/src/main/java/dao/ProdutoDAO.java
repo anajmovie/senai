@@ -68,4 +68,16 @@ public class ProdutoDAO {
 			return false;
 		}
 	}
+	
+	// editando
+	public int update(Produto produto) throws SQLException {
+		String sql = "update produtos set nome = ?, descricao = ?, preco = ? where id_produto = ?;";
+		con = ConnectionDB.getConnection();
+		ps = con.prepareStatement(sql);
+		ps.setString(1, produto.getNome());
+		ps.setString(2, produto.getDescricao());
+		ps.setDouble(3, produto.getPreco());
+		ps.setInt(4, produto.getidProduto());
+		return ps.executeUpdate();
+	}
 }

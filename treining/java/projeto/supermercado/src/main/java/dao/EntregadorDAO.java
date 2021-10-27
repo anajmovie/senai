@@ -64,4 +64,15 @@ public class EntregadorDAO {
 			return false;
 		}
 	}
+	
+	// editando pelo id
+	public int update(Entregador entregador) throws SQLException {
+		String sql = "update entregadores set nome_completo = ?, veiculo = ? where id_entregador = ?";
+		con = ConnectionDB.getConnection();
+		ps = con.prepareStatement(sql);
+		ps.setString(1, entregador.getnomeCompleto());
+		ps.setString(2, entregador.getVeiculo());
+		ps.setInt(3, entregador.getidEntregador());
+		return ps.executeUpdate();
+	}
 }

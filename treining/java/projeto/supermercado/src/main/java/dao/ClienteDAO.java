@@ -71,4 +71,19 @@ public class ClienteDAO {
 			return false;
 		}
 	}
+	
+	// editando pelo id
+	public int update(Cliente cliente) throws SQLException {
+		String sql = "update clientes set nome_completo = ?, cpf = ?, email = ?, telefone = ?, senha = ?, endereco = ? where id_cliente = ?;";
+		con = ConnectionDB.getConnection();
+		ps = con.prepareStatement(sql);
+		ps.setString(1, cliente.getnomeCompleto());
+		ps.setString(2, cliente.getCpf());
+		ps.setString(3, cliente.getEmail());
+		ps.setString(4, cliente.getTelefone());
+		ps.setString(5, cliente.getSenha());
+		ps.setString(6, cliente.getEndereco());
+		ps.setInt(7, cliente.getidCliente());
+		return ps.executeUpdate();
+	}
 }

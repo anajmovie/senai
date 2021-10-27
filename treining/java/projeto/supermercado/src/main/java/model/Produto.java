@@ -28,6 +28,16 @@ public class Produto {
 		this.idProduto = Integer.valueOf(idProduto);
 	}
 	
+	public Produto(int idProduto, double preco) {
+		this.idProduto = idProduto;
+		this.preco = preco;
+	}
+	
+	public Produto(String idProduto, String preco) {
+		this.idProduto = Integer.valueOf(idProduto);
+		this.preco = Double.valueOf(preco);
+	}
+	
 	// contrutor cheio
 	public Produto(int idProduto, String nome, String descricao, double preco) {
 		this.idProduto = idProduto;

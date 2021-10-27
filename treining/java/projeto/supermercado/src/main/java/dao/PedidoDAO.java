@@ -25,7 +25,7 @@ public class PedidoDAO {
 	// listando todos
 	public ArrayList<Pedido> readAll() throws SQLException{
 		pedidos = new ArrayList<>(); // inicia com a lista vazia
-		String query = "select * from pedidos;"; // criando a query
+		String query = "select pedidos.*, operadores.id_funcionario from pedidos INNER JOIN operadores ON pedidos.id_caixa = operadores.id_caixa;"; // criando a query
 		
 		// conecta, executa e retorna os dados
 		con = ConnectionDB.getConnection();
@@ -38,7 +38,7 @@ public class PedidoDAO {
 			pedido.setidPedido(rs.getInt("id_pedido"));
 			pedido.setCliente(new Cliente(rs.getString("id_cliente")));
 			pedido.setEntregador(new Entregador(rs.getString("id_entregador")));
-			pedido.setCaixa(new Operador(rs.getString("id_caixa")));
+			pedido.setCaixa(new Operador(rs.getString("id_caixa"), rs.getString("id_funcionario")));
 			pedido.setData(rs.getDate("data"));
 			pedido.setHora_pedidPedidoo(rs.getTime("hora_pedido"));
 			pedido.sethoraInicio(rs.getTime("hora_inicio"));
@@ -84,5 +84,21 @@ public class PedidoDAO {
 			con.close();
 			return false;
 		}
+	}
+	
+	// editando pelo id
+	public int update(Pedido pedido) throws SQLException {
+		String sql = "update pedidos set id_cliente = ?, id_entregador = ?, id_caixa = ?, data = ?, hora_pedido = ?, hora_inicio = ?, hora_fim = ? where id_pedido = ?;";
+		con = ConnectionDB.getConnection();
+		ps = con.prepareStatement(sql);
+		ps.setInt(1, pedido.getCliente().getidCliente());
+		ps.setInt(2, pedido.getEntregador().getidEntregador());
+		ps.setInt(3, pedido.getCaixa().getIdCaixa());
+		ps.setDate(4, Date.valueOf(LocalDate.now()));
+		ps.setTime(5, Time.valueOf(LocalTime.now()));
+		ps.setTime(6, (Time) pedido.gethoraInicio());
+		ps.setTime(7, (Time) pedido.gethoraFim());
+		ps.setInt(8, pedido.getidPedido());
+		return ps.executeUpdate();
 	}
 }

@@ -94,4 +94,26 @@ public class ProdutoREST extends HttpServlet{
 			out.print("{ \"erro\":\"É necessário o parâmetro 'id' para a exclusão\"}");
 		}
 	}
+	
+	@Override
+	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		out = resp.getWriter();
+		String body = req.getReader().readLine(); // le a primeira linha do corpo de req
+		
+		if(body != null) { // se a primeira linha nao for nula
+			req.getReader().reset(); // reseta a leitura das linhas do corpo da req
+			body = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+			try {
+				if(ProdutoProcess.update(body)) { // se os dados forem registrados
+					resp.setStatus(HttpServletResponse.SC_GONE); // responde com status alterado
+				}
+			}catch(SQLException e) {
+				resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
+				out.print("{ \"erro\":\"Erro ao conectar ao SGBD: "+ e +"\"}");
+			}
+		}else { // se nao foi preenchido corretamente 
+			resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
+			out.print("{\"id_produto\":\"1\",\"nome\":Algum nome,\"descricao\":\"Uma descricao\",\"preco\":\"Um valor\"\"}");
+		}	
+	}
 }

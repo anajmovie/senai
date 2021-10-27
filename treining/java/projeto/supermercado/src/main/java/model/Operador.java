@@ -25,6 +25,16 @@ public class Operador {
 	public Operador(String idCaixa) {
 		this.idCaixa = Integer.valueOf(idCaixa);
 	}
+	
+	public Operador(int idCaixa, int idFuncionario) {
+		this.idCaixa = idCaixa;
+		this.idFuncionario = idFuncionario;
+	}
+	
+	public Operador(String idCaixa, String idFuncionario) {
+		this.idCaixa = Integer.valueOf(idCaixa);
+		this.idFuncionario = Integer.valueOf(idFuncionario);
+	}
 
 	// contrutor cheio
 	public Operador(int idCaixa, int idFuncionario, String nomeCompleto, String cpf) {
