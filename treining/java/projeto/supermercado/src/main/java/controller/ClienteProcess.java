@@ -53,4 +53,23 @@ public class ClienteProcess {
 		cd = new ClienteDAO();
 		return cd.delete(idCliente);
 	}
+	
+	// editando
+	public static boolean update(String body) throws SQLException {
+		cd = new ClienteDAO();
+		try {
+			jo = new JSONObject(body);
+			cliente = new Cliente();
+			cliente.setidCliente(jo.getInt("id_cliente"));
+			cliente.setnomeCompleto(jo.getString("nome_completo"));
+			cliente.setCpf(jo.getString("cpf"));
+			cliente.setEmail(jo.getString("email"));
+			cliente.setTelefone(jo.getString("telefone"));
+			cliente.setSenha(jo.getString("senha"));
+			cliente.setEndereco(jo.getString("endereco"));
+		} catch (JSONException e) {
+			System.out.println("Erro ao receber JSON: "+e);
+		}
+		return cd.update(cliente) > 0;
+	}
 }

@@ -49,4 +49,19 @@ public class EntregadorProcess {
 		ed = new EntregadorDAO();
 		return ed.delete(idEntregador);
 	}
+	
+	// editando
+	public static boolean update(String body) throws SQLException {
+		ed = new EntregadorDAO();
+		try {
+			jo = new JSONObject(body);
+			entregador = new Entregador();
+			entregador.setidEntregador(jo.getInt("id_entregador"));
+			entregador.setnomeCompleto(jo.getString("nome_completo"));
+			entregador.setVeiculo(jo.getString("veiculo"));
+		} catch (JSONException e) {
+			System.out.println("Erro ao receber JSON: "+e);
+		}
+		return ed.update(entregador) > 0;
+	}
 }

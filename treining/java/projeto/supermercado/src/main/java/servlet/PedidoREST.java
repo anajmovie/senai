@@ -91,4 +91,26 @@ public class PedidoREST extends HttpServlet{
 			out.print("{ \"erro\":\"Necessário o parâmetro 'id' para exclusão\"}");
 		}
 	}
+	
+	// update
+	@Override
+	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		out = resp.getWriter();
+		String body = req.getReader().readLine();
+		
+		if(body != null) {
+			req.getReader().reset();
+			body = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+			try {
+				if(PedidoProcess.update(body)) {
+					resp.setStatus(HttpServletResponse.SC_GONE);
+				}
+			} catch (SQLException e) {
+				resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
+				out.print("{ \"erro\":\"Erro ao conectar ao SGBD: "+ e +"\"}");
+			}
+		}else {
+			resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
+		}
+	}
 }

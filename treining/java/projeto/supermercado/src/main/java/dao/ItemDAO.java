@@ -68,4 +68,15 @@ public class ItemDAO {
 			return false;
 		}
 	}
+	
+	// editando pelo id
+	public int update(ItemPedido item) throws SQLException {
+		String sql = "update itens set id_produto = ?, quantidade = ? where id_pedido = ?;";
+		con = ConnectionDB.getConnection();
+		ps = con.prepareStatement(sql);
+		ps.setInt(1, item.getProduto().getidProduto());
+		ps.setInt(2, item.getQuantidade());
+		ps.setInt(3, item.getPedido().getidPedido());
+		return ps.executeUpdate();
+	}
 }

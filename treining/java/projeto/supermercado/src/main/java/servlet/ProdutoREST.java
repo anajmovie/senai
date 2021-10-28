@@ -95,6 +95,7 @@ public class ProdutoREST extends HttpServlet{
 		}
 	}
 	
+	// update
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		out = resp.getWriter();

@@ -6,6 +6,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import dao.ItemDAO;
 import model.ItemPedido;
+import model.Pedido;
 import model.Produto;
 
 public class ItemProcess {
@@ -39,5 +40,20 @@ public class ItemProcess {
 	public static boolean delete(String idPedido) throws SQLException {
 		id = new ItemDAO();
 		return id.delete(idPedido);
+	}
+	
+	// editando
+	public static boolean update(String body) throws SQLException {
+		id = new ItemDAO();
+		try {
+			jo = new JSONObject(body);
+			item = new ItemPedido();
+			item.setPedido(new Pedido(jo.getInt("id_pedido")));
+			item.setProduto(new Produto(jo.getInt("id_produto")));
+			item.setQuantidade(jo.getInt("quantidade"));
+		} catch (JSONException e) {
+			System.out.println("Erro ao receber JSON: "+e);
+		}
+		return id.update(item) > 0;
 	}
 }

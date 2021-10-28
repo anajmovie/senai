@@ -50,4 +50,20 @@ public class OperadorProcess {
 		od = new OperadorDAO();
 		return od.delete(idCaixa);
 	}
+	
+	// editando
+	public static boolean update(String body) throws SQLException {
+		od = new OperadorDAO();
+		try {
+			jo = new JSONObject(body);
+			operador = new Operador();
+			operador.setIdCaixa(jo.getInt("id_caixa"));
+			operador.setIdFuncionario(jo.getInt("id_funcionario"));
+			operador.setnomeCompleto(jo.getString("nome_completo"));
+			operador.setCpf(jo.getString("cpf"));
+		} catch (JSONException e) {
+			System.out.println("Erro ao receber JSON: "+e);
+		}
+		return od.update(operador) > 0;
+	}
 }

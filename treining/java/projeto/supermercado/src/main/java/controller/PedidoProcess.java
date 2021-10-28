@@ -57,4 +57,24 @@ public class PedidoProcess {
 		pd = new PedidoDAO();
 		return pd.delete(idPedido);
 	}
+	
+	// editando
+	public static boolean update(String body) throws SQLException {
+		pd = new PedidoDAO();
+		try {
+			jo = new JSONObject(body);
+			pedido = new Pedido();
+			pedido.setidPedido(jo.getInt("id_pedido"));
+			pedido.setCliente(new Cliente(jo.getInt("id_cliente")));
+			pedido.setEntregador(new Entregador(jo.getInt("id_entregador")));
+			pedido.setCaixa(new Operador(jo.getInt("id_caixa")));
+			pedido.setData(new Date(jo.getInt("data")));
+			pedido.setHora_pedidPedidoo(new Time(jo.getInt("hora_pedido")));
+			pedido.sethoraInicio(new Time(jo.getInt("hora_inicio")));
+			pedido.sethoraFim(new Time(jo.getInt("hora_fim")));
+		} catch (JSONException e) {
+			System.out.println("Erro ao receber JSON: "+e);
+		}
+		return pd.update(pedido) > 0;
+	}
 }
