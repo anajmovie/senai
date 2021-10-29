@@ -40,7 +40,7 @@ public class PedidoDAO {
 			pedido.setEntregador(new Entregador(rs.getString("id_entregador")));
 			pedido.setCaixa(new Operador(rs.getString("id_caixa"), rs.getString("id_funcionario")));
 			pedido.setData(rs.getDate("data"));
-			pedido.setHora_pedidPedidoo(rs.getTime("hora_pedido"));
+			pedido.setHoraPedido(rs.getTime("hora_pedido"));
 			pedido.sethoraInicio(rs.getTime("hora_inicio"));
 			pedido.sethoraFim(rs.getTime("hora_fim"));
 			pedidos.add(pedido);
@@ -94,10 +94,10 @@ public class PedidoDAO {
 		ps.setInt(1, pedido.getCliente().getidCliente());
 		ps.setInt(2, pedido.getEntregador().getidEntregador());
 		ps.setInt(3, pedido.getCaixa().getIdCaixa());
-		ps.setDate(4, Date.valueOf(LocalDate.now()));
-		ps.setTime(5, Time.valueOf(LocalTime.now()));
-		ps.setTime(6, (Time) pedido.gethoraInicio());
-		ps.setTime(7, (Time) pedido.gethoraFim());
+		ps.setString(4, pedido.getDataStr());
+		ps.setString(5, pedido.getHoraPedidoStr());
+		ps.setString(6, pedido.gethoraInicioStr());
+		ps.setString(7, pedido.gethoraFimStr());
 		ps.setInt(8, pedido.getidPedido());
 		return ps.executeUpdate();
 	}

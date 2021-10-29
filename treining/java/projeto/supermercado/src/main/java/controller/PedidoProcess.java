@@ -43,7 +43,7 @@ public class PedidoProcess {
 			pedido.setEntregador(new Entregador(jo.getInt("id_entregador")));
 			pedido.setCaixa(new Operador(jo.getInt("id_caixa")));
 			pedido.setData(new Date(jo.getInt("data")));
-			pedido.setHora_pedidPedidoo(new Time(jo.getInt("hora_pedido")));
+			pedido.setHoraPedido(new Time(jo.getInt("hora_pedido")));
 			pedido.sethoraInicio(new Time(jo.getInt("hora_inicio")));
 			pedido.sethoraFim(new Time(jo.getInt("hora_fim")));
 		} catch (JSONException e) {
@@ -68,10 +68,10 @@ public class PedidoProcess {
 			pedido.setCliente(new Cliente(jo.getInt("id_cliente")));
 			pedido.setEntregador(new Entregador(jo.getInt("id_entregador")));
 			pedido.setCaixa(new Operador(jo.getInt("id_caixa")));
-			pedido.setData(new Date(jo.getInt("data")));
-			pedido.setHora_pedidPedidoo(new Time(jo.getInt("hora_pedido")));
-			pedido.sethoraInicio(new Time(jo.getInt("hora_inicio")));
-			pedido.sethoraFim(new Time(jo.getInt("hora_fim")));
+			pedido.setData(jo.getString("data"));
+			pedido.setHoraPedido(jo.getString("hora_pedido"));
+			pedido.sethoraInicio(jo.getString("hora_inicio"));
+			pedido.sethoraFim(jo.getString("hora_fim"));
 		} catch (JSONException e) {
 			System.out.println("Erro ao receber JSON: "+e);
 		}

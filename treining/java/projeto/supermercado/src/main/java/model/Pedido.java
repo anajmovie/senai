@@ -1,10 +1,10 @@
 package model;
 
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -108,33 +108,85 @@ public class Pedido {
 	public Date getData() {
 		return data;
 	}
+	
+	public String getDataStr() {
+		return fd.format(data);
+	}
 
 	public void setData(Date data) {
 		this.data = data;
 	}
-
-	public Date getHora_pedidPedidoo() {
-		return horaPedido;
+	
+	// string data
+	public void setData(String data) {
+		try {
+			this.data = fd.parse(data);
+		} catch (ParseException e) {
+			System.out.println("Erro de conversão de data e hora: "+e);
+		}
 	}
 
-	public void setHora_pedidPedidoo(Date horaPedido) {
+	public Date getHoraPedido() {
+		return horaPedido;
+	}
+	
+	public String getHoraPedidoStr() {
+		return fh.format(horaPedido);
+	}
+
+	public void setHoraPedido(Date horaPedido) {
 		this.horaPedido = horaPedido;
+	}
+	
+	// string hora do pedido
+	public void setHoraPedido(String horaPedido) {
+		try {
+			this.horaPedido = fh.parse(horaPedido);
+		} catch (ParseException e) {
+			System.out.println("Erro de conversão de data e hora: "+e);
+		}
 	}
 
 	public Date gethoraInicio() {
 		return horaInicio;
 	}
+	
+	public String gethoraInicioStr() {
+		return fh.format(horaInicio);
+	}
 
 	public void sethoraInicio(Date horaInicio) {
 		this.horaInicio = horaInicio;
+	}
+	
+	// string hora da entrega
+	public void sethoraInicio(String horaInicio) {
+		try {
+			this.horaInicio = fh.parse(horaInicio);
+		} catch (ParseException e) {
+			System.out.println("Erro de conversão de data e hora: "+e);
+		}
 	}
 
 	public Date gethoraFim() {
 		return horaFim;
 	}
+	
+	public String gethoraFimStr() {
+		return fh.format(horaFim);
+	}
 
 	public void sethoraFim(Date horaFim) {
 		this.horaFim = horaFim;
+	}
+	
+	// string hora do fim da entrega
+	public void sethoraFim(String horaFim) {
+		try {
+			this.horaFim = fh.parse(horaFim);
+		} catch (ParseException e) {
+			System.out.println("Erro de conversão de data e hora: "+e);
+		}
 	}
 
 	// hash e equals
