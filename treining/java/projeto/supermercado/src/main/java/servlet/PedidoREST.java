@@ -58,9 +58,9 @@ public class PedidoREST extends HttpServlet{
 		
 		try {
 			int idPedido = PedidoProcess.create(body);
-			if(idPedido > 0) {
-				resp.setStatus(HttpServletResponse.SC_CREATED);
-				out.print("{\"idPedido\":"+idPedido+"}");
+			if(idPedido > 0) { // se a variavel for maior do que 0, sinal que deu certo a criação dos dados,
+				resp.setStatus(HttpServletResponse.SC_CREATED); 
+				out.print("{\"idPedido\":"+idPedido+"}"); // e nos retornará o numero do id
 			}else {
 				resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
 			}
@@ -74,8 +74,8 @@ public class PedidoREST extends HttpServlet{
 	@Override
 	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		out = resp.getWriter();
-		String idPedido = req.getParameter("id_pedido");
-		if (idPedido != null) {
+		String idPedido = req.getParameter("id_pedido"); // recebendo o id que vai ser excluido por parametro
+		if (idPedido != null) { // se existir esse id no banco, sera deletado
 			try {
 				if (PedidoProcess.delete(idPedido)) {
 					resp.setStatus(HttpServletResponse.SC_OK);
@@ -96,14 +96,14 @@ public class PedidoREST extends HttpServlet{
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		out = resp.getWriter();
-		String body = req.getReader().readLine();
+		String body = req.getReader().readLine(); // corpo que vai ler só a primeira linha da requisição
 		
-		if(body != null) {
-			req.getReader().reset();
-			body = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+		if(body != null) { // se a leitura não for nula
+			req.getReader().reset(); // redefine para um dado recente
+			body = req.getReader().lines().collect(Collectors.joining(System.lineSeparator())); // lendo corpo da requisiçao http
 			try {
 				if(PedidoProcess.update(body)) {
-					resp.setStatus(HttpServletResponse.SC_GONE);
+					resp.setStatus(HttpServletResponse.SC_GONE); // se for atualizado responde com status 401 alterado
 				}
 			} catch (SQLException e) {
 				resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);

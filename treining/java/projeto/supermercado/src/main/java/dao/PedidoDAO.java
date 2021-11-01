@@ -30,10 +30,10 @@ public class PedidoDAO {
 		// conecta, executa e retorna os dados
 		con = ConnectionDB.getConnection();
 		ps = con.prepareStatement(query);
-		rs = ps.executeQuery(); // resultado
+		rs = ps.executeQuery(); // resultado, executeQuery executa comandos apenas de select
 		
 		// percorre o resultado preenchendo a lista
-		while(rs.next()) {
+		while(rs.next()) { // metodo que permite que seja direcionado para a proxima linha caso exista
 			pedido = new Pedido();
 			pedido.setidPedido(rs.getInt("id_pedido"));
 			pedido.setCliente(new Cliente(rs.getString("id_cliente")));
@@ -99,6 +99,6 @@ public class PedidoDAO {
 		ps.setString(6, pedido.gethoraInicioStr());
 		ps.setString(7, pedido.gethoraFimStr());
 		ps.setInt(8, pedido.getidPedido());
-		return ps.executeUpdate();
+		return ps.executeUpdate(); // executeUpdate serve para executar comandos de delete, insert e update
 	}
 }
