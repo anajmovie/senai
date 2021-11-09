@@ -51,12 +51,6 @@ create table pedidos(
     hora_fim Time
 );
 
-create table logins(
-    id_cliente integer not null primary key,
-    email varchar(70) not null,
-    senha varchar(30) not null
-);
-
 alter table pedidos add
 constraint fk_opera foreign key (id_caixa)
 references operadores(id_caixa);
@@ -76,10 +70,6 @@ references pedidos(id_pedido);
 alter table itens add
 constraint fk_item_produto foreign key (id_produto)
 references produtos(id_produto);
-
-alter table logins add
-constraint fk_login_cliente foreign key (id_cliente)
-references clientes(id_cliente);
 
 describe operadores;
 describe entregadores;
@@ -161,13 +151,6 @@ insert into itens(id_produto, quantidade) values
 (2, 10),
 (4, 3),
 (1, 5);
-
-insert into logins(id_cliente, email, senha) values
-(1, "akeme1@gmail.com", "akeme123"),
-(2, "alana1@gmail.com", "alana123"),
-(3, "abna1@gmail.com", "abna123"),
-(4, "augusto1@gmail.com", "augusto123");
-
 
 select * from clientes;
 select * from entregadores;
