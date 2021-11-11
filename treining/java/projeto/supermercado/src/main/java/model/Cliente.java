@@ -29,6 +29,11 @@ public class Cliente {
 	public Cliente(String idCliente) {
 		this.idCliente = Integer.valueOf(idCliente);
 	}
+	
+	public Cliente(String email, String senha) {
+		this.email = email;
+		this.senha = senha;
+	}
 
 	// contrutor cheio
 	public Cliente(int idCliente, String cpf, String nomeCompleto, String email, String senha, String endereco, String telefone) {
