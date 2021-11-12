@@ -6,11 +6,15 @@ import org.json.JSONObject;
 public class Login {
 	// atributos
 	private Cliente cliente;
-	private Cliente conta;
+	//private Cliente conta;
 
 	// construtor vazio
 	public Login() {
 
+	}
+	
+	public Login(int idCliente) {
+		this.cliente = new Cliente(idCliente);
 	}
 	
 	public Login(String idCliente) {
@@ -18,22 +22,17 @@ public class Login {
 	}
 
 	// construtor cheio
-	public Login(Cliente cliente, Cliente conta, Cliente contaSenha) {
+	public Login(Cliente cliente, Cliente cliemail, Cliente clisenha) {
 		this.cliente = cliente;
-		this.conta = conta;
-		this.conta = contaSenha;
+		this.cliente = cliemail;
+		this.cliente = clisenha;
 	}
 	
 	// construtor cheio - string
 	public Login(String idCliente, String email, String senha) {
 		this.cliente = new Cliente(idCliente);
-		this.conta = new Cliente(email);
-		this.conta = new Cliente(senha);
-	}
-	
-	public Login(String email, String senha) {
-		this.conta = new Cliente(email);
-		this.conta = new Cliente(senha);
+		this.cliente = new Cliente(email);
+		this.cliente = new Cliente(senha);
 	}
 
 	// getter e setter
@@ -45,28 +44,19 @@ public class Login {
 		this.cliente = cliente;
 	}
 
-	public Cliente getConta() {
-		return conta;
-	}
-
-	public void setConta(Cliente conta) {
-		this.conta = conta;
-	}
-
 	@Override
 	public String toString() {
-		return cliente.getidCliente() + "\t" + conta.getEmail() + "\t" + conta.getSenha() + "\n";
+		return cliente.getidCliente() + "\t" + cliente.getEmail() + "\t" + cliente.getSenha() + "\n";
 	}
 	
 	public String toCSV() {
-		return cliente.getidCliente() + ";" + conta.getEmail() + ";" + conta.getSenha() + "\r\n";
+		return cliente.getidCliente() + ";" + cliente.getEmail() + ";" + cliente.getSenha() + "\r\n";
 	}
 	
 	public JSONObject toJSON() {
 		JSONObject json = new JSONObject();
 		try {
 			json.put("cliente", cliente.toJSON());
-			json.put("conta", conta.toJSON());
 		} catch (JSONException e) {
 			System.out.println("Erro ao converter JSON: "+e);
 		}

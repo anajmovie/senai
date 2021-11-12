@@ -3,6 +3,7 @@ package servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.stream.Collectors;
 
 import org.json.JSONArray;
 
@@ -48,4 +49,69 @@ public class LoginREST extends HttpServlet{
 			System.out.println("Erro ao carregar dados do SGBD: "+e);
 		}
 	}
+	
+	// create
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		out = resp.getWriter();
+		String body = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+		
+		int idCliente;
+		try {
+			idCliente = LoginProcess.create(body);
+			if(idCliente > 0) {
+				resp.setStatus(HttpServletResponse.SC_CREATED);
+				out.print("{\"id_cliente\":"+idCliente+"}");
+			}else {
+				resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
+			}
+		} catch (SQLException e) {
+			System.out.println("Erro ao carregar dados do SGBD: "+e);
+			resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
+		}	
+	}
+	
+	// delete
+	@Override
+	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		out = resp.getWriter();
+		String idCliente = req.getParameter("id_cliente");
+		if(idCliente != null) {
+			try {
+				if(LoginProcess.delete(idCliente)) {
+					resp.setStatus(HttpServletResponse.SC_OK);
+				}else {
+					resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+				}
+			} catch (SQLException e) {
+				System.out.println("Erro ao conectar com o SGBD: "+e);
+				resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
+			}
+		}else {
+			resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
+			out.print("{\"erro\":\"Necessário o parâmetro 'id' para exclusão\"}");
+		}
+	}
+	
+	// update
+	@Override
+	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		out = resp.getWriter();
+		String body = req.getReader().readLine();
+		
+		if(body != null) {
+			req.getReader().reset();
+			body = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+			try {
+				if(LoginProcess.update(body)) {
+					resp.setStatus(HttpServletResponse.SC_GONE);
+				}
+			} catch (SQLException e) {
+				resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
+				out.print("{\"erro\":\"Erro ao conectar ao SGBD: "+ e +"\"}");
+			}
+		}else {
+			resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
+		}
+	}	
 }
