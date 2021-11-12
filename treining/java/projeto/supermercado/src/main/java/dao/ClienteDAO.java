@@ -42,7 +42,11 @@ public class ClienteDAO {
 		con = ConnectionDB.getConnection();
 		ps = con.prepareStatement(sql);
 		ps.setString(1, cliente.getnomeCompleto());
-		ps.setString(2, cliente.getCpf());
+		// verifica se o cpf não possui comprimento zero
+		if(cliente.getCpf().length() == 0)
+			ps.setString(2, null);
+		else
+			ps.setString(2, cliente.getCpf());
 		ps.setString(3, cliente.getEmail());
 		ps.setString(4, cliente.getTelefone());
 		ps.setString(5, cliente.getSenha());
@@ -78,7 +82,11 @@ public class ClienteDAO {
 		con = ConnectionDB.getConnection();
 		ps = con.prepareStatement(sql);
 		ps.setString(1, cliente.getnomeCompleto());
-		ps.setString(2, cliente.getCpf());
+		// verifica se o cpf não possui comprimento zero
+		if(cliente.getCpf().length() == 0)
+			ps.setString(2, null);
+		else
+			ps.setString(2, cliente.getCpf());
 		ps.setString(3, cliente.getEmail());
 		ps.setString(4, cliente.getTelefone());
 		ps.setString(5, cliente.getSenha());

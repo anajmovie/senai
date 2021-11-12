@@ -37,7 +37,11 @@ public class ClienteProcess {
 			jo = new JSONObject(body);
 			cliente = new Cliente();
 			cliente.setnomeCompleto(jo.getString("nome_completo"));
-			cliente.setCpf(jo.getString("cpf"));
+			// verifica se possui cpf e se não é nulo
+			if(jo.has("cpf") && !jo.isNull("cpf"))
+				cliente.setCpf(jo.getString("cpf"));
+			else // se for nulo configura o modelo com coomprimento zero ""
+				cliente.setCpf("");
 			cliente.setEmail(jo.getString("email"));
 			cliente.setTelefone(jo.getString("telefone"));
 			cliente.setSenha(jo.getString("senha"));
@@ -62,7 +66,11 @@ public class ClienteProcess {
 			cliente = new Cliente();
 			cliente.setidCliente(jo.getInt("id_cliente"));
 			cliente.setnomeCompleto(jo.getString("nome_completo"));
-			cliente.setCpf(jo.getString("cpf"));
+			// verifica se possui cpf e se não é nulo
+			if(jo.has("cpf") && !jo.isNull("cpf"))
+				cliente.setCpf(jo.getString("cpf"));
+			else // se for nulo configura o modelo com comprimento zero ""
+				cliente.setCpf("");
 			cliente.setEmail(jo.getString("email"));
 			cliente.setTelefone(jo.getString("telefone"));
 			cliente.setSenha(jo.getString("senha"));
