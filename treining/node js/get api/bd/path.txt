@@ -1,0 +1,1 @@
+source C:\Users\Desenvolvimento\Desktop\node\get api\bd\script.sql
