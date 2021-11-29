@@ -1,0 +1,1 @@
+source C:\Users\Desenvolvimento\Desktop\2des\pwbe\node\mvc funcionario\bd\script.sql
