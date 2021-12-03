@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Users\Desenvolvimento\Desktop\2des\pwbe\pescaria\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2603288289.index
+2795568820.index
+250645396.index
+3489451734.index
+1861031676.index
+4005660843.index

@@ -1,0 +1,20 @@
+package controll;
+
+import org.json.JSONObject;
+
+import model.Pescador;
+
+public class StatusProcess {
+	
+	Pescador pesc = new Pescador();
+	
+	public String status() {
+		String status1 = "ok";
+		String status2 = "não ok";
+		
+		if(pesc.getCidade() == "Pedreira" && pesc.getQuantidade() > 10) {
+			JSONObject json = new JSONObject();
+			json.put(, false)
+		}
+	}
+}
