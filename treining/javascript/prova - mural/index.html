@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+    <title>Mural</title>
+</head>
+<body>
+    <h1>Mural de Avisos</h1>
+    <div class="mural">
+        <select id="tipos">
+            <option value="tipo1">Normal</option>
+            <option value="tipo2">Importante</option>
+            <option value="tipo3">Urgente</option>
+        </select>
+
+        <input type="text" id="msg" placeholder="adicionar mensagem">
+        <input type="text" id="link" placeholder="adicionar link">
+
+        <button onclick="adicionar()">Adicionar</button>
+        <div class="messages">
+
+        </div>
+    </div>
+</body>
+<script src="data.js"></script>
+</html>
