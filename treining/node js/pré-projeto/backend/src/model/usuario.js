@@ -24,6 +24,10 @@ class usuario extends Model {
             }
         );
     }
+
+    static associate(models) {
+        usuario.hasMany(models.localizacao, { foreignKey: 'id_user' });
+    }
 }
 
 module.exports = usuario;

@@ -1,8 +1,10 @@
-const usuario  = require('../model/usuario');
+const localizacao  = require('../model/localizacao');
+const usuario = require('../model/usuario');
+const alerta = require('../model/alerta');
 
 const create = async (req, res) => {
     const data = req.body;
-    const ret = await usuario.create(data);
+    const ret = await localizacao.create(data);
     res.json(ret);
 }
 
@@ -11,7 +13,12 @@ const read = async (req, res) => {
     let id = req.params.id;
     if(id != undefined) filtro = { where: { id: id }}
 
-    const ret = await usuario.findAll(filtro);
+    filtro.include = [
+        { model: usuario },
+        { model: alerta}
+    ]
+
+    const ret = await localizacao.findAll(filtro);
     res.json(ret);
 }
 
@@ -19,11 +26,11 @@ const update = async (req, res) => {
     const id = req.params.id;
     const data = req.body;
     
-    let ret = await usuario.update(data, {
+    let ret = await localizacao.update(data, {
         where: { id: id }
     })
 
-    ret = await usuario.findAll({
+    ret = await localizacao.findAll({
         where: { id: id }
     })
 
@@ -32,7 +39,7 @@ const update = async (req, res) => {
 
 const remove = async (req, res) => {
     const id = req.params.id;
-    const ret = await usuario.destroy({
+    const ret = await localizacao.destroy({
         where: { id: id }
     })
 
