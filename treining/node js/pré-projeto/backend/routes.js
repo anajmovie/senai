@@ -26,4 +26,6 @@ route.post('/localizacao', localizacaoController.create);
 route.get('/localizacao', localizacaoController.read);
 route.get('/localizacao/:id', localizacaoController.read);
 
+route.post('/login', usuarioController.login);
+
 module.exports = route;
