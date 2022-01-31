@@ -26,10 +26,19 @@ body {
 }
 
 input[type="text"], input[type="password"] {
-    border: .1rem solid var(--border-color);
+    border: .1rem solid var(--base-color);
     padding: var(--padding-default);
     border-radius: 10px;
     outline: none;
+    margin-top: 15px;
+}
+
+select {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
 }
 
 button {
@@ -37,8 +46,24 @@ button {
     padding: var(--padding-default);
     border-radius: 10px;
     width: 100px;
-    background-color: var(--border-color);
+    background-color: var(--base-color);
     color: white;
     font-weight: bold;
+    margin-top: 15px;
     cursor: pointer;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, .7);
+    transition: all .2s;
 }
